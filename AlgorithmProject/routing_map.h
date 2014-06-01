@@ -21,6 +21,10 @@ typedef enum
     rightSide,
     bottomSide,
     leftSide,
+    topAngle,
+    rightAngle,
+    bottomAngle,
+    leftAngle,
 }edges;
 
 class RoutingMap
@@ -44,7 +48,7 @@ private:
     void seqtoMap(int layer, int startRowNym, int startColNum, int pointer, int *rowNum, int *colNum, edges *side);
     void layertoMap(int layer, int startRowNum, int startColNum, int pointer, int *rowNum, int *colNum);
     int seqPointertoLayerPointer(int layer, int seqPointer);
-    void insertNodetoPath(int layer, int startRow, int startCol, int startPoint, int endPoint);
+    void insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node);
 };
 
 #endif /* defined(__MPCS2__routing_map__) */

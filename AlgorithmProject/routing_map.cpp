@@ -304,10 +304,17 @@ void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
         layertoMap(layer, startRowNum, startColNum, i, &row0, &col0);
         for (int j = 0; j < sequenceNum; ++j) {
             seqtoMap(layer, startRowNum, startColNum, j, &row1, &col1, &side1);
+            int pointerTmp = seqPointertoLayerPointer(layer, j);
             if (side1 == topSide) {
                 for (int k = 1; map[row1 * mapColNum + col1].top.size(); ++k) {
                     if (map[row0 * mapColNum + col0].top[0] == map[row1 * mapColNum + col1].top[k]) {
-                        map[row0 * mapColNum + col0].right.push_back(map[row1 * mapColNum + col1].top[k]);
+                        insertNodetoPath(layer, startRowNum, startColNum, i, topAngle, pointerTmp, topSide, map[row1 * mapColNum + col1].top[k]);
+                    } else if(map[row0 * mapColNum + col0].right[0] == map[row1 * mapColNum + col1].top[k]) {
+                        insertNodetoPath(layer, startRowNum, startColNum, i, rightAngle, pointerTmp, topSide, map[row1 * mapColNum + col1].top[k]);
+                    } else if(map[row0 * mapColNum + col0].buttom[0] == map[row1 * mapColNum + col1].top[k]) {
+                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomAngle, pointerTmp, topSide, map[row1 * mapColNum + col1].top[k]);
+                    } else if(map[row0 * mapColNum + col0].left[0] == map[row1 * mapColNum + col1].top[k]) {
+                        insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, topSide, map[row1 * mapColNum + col1].top[k]);
                     }
                 }
             } else if(side1 == rightSide){
@@ -333,10 +340,112 @@ void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
     }
 }
 
-void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int startPoint, int endPoint)
+void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node)
 {
     int rowSize = 2 * layer + 1;
     int colSize = 2 * layer + 1;
+    int row0 = 0;
+    int col0 = 0;
+    int row1 = 0;
+    int col1 = 0;
+
+    layertoMap(layer, startRow, startCol, endPoint, &row1, &col1);
+    if (endPoint > startPoint) {
+        if (endPoint > 0 && endPoint <= colSize - 1) {   //top side
+            if (endSide == leftSide) {
+                endPoint --;
+            }
+        } else if(endPoint > colSize && endPoint <= colSize + rowSize - 2) {   //right side
+            if (endSide == topSide) {
+                endPoint --;
+            }
+        } else if(endPoint > colSize + rowSize - 2 && endPoint <= 2 * colSize + rowSize - 3) {
+            if (endSide == rightSide) {
+                endPoint --;
+            }
+        } else if(endPoint > 2 * colSize + rowSize - 3 && endPoint <= 2 * (rowSize + colSize) - 5) {
+            if (endSide == bottomSide) {
+                endPoint --;
+            }
+        }
+        for (int i = startPoint; i < endPoint; ++i) {
+            layertoMap(layer, startRow, startCol, i, &row0, &col0);
+            if (i < colSize - 1) {   //top side
+                if (startSide == topAngle || startSide == leftAngle) {
+                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                    map[row0 * mapColNum + col0].right.push_back(vnode);
+                }
+            } else if(i >= colSize && i < colSize + rowSize - 2) {   //right side
+                if (startSide == topAngle || startSide == rightAngle) {
+                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                    map[row0 * mapColNum + col0].buttom.push_back(vnode);
+                }
+            } else if(i >= colSize + rowSize - 2 && i < 2 * colSize + rowSize - 3) {
+                if (startSide == rightAngle || startSide == bottomAngle) {
+                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                    map[row0 * mapColNum + col0].left.push_back(vnode);
+                }
+            } else if(i >= 2 * colSize + rowSize - 3 && i < 2 * (rowSize + colSize) - 5) {
+                if (startSide == bottomAngle || startSide == leftAngle) {
+                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                    map[row0 * mapColNum + col0].top.push_back(vnode);
+                }
+            }
+        }
+    } else if(endPoint < startPoint){
+        if (endPoint >= 0 && endPoint < colSize - 1) {   //top side
+            if (endSide == rightSide) {
+                endPoint ++;
+            }
+        } else if(endPoint >= colSize && endPoint < colSize + rowSize - 2) {   //right side
+            if (endSide == bottomSide) {
+                endPoint ++;
+            }
+        } else if(endPoint >= colSize + rowSize - 2 && endPoint < 2 * colSize + rowSize - 3) {
+            if (endSide == leftSide) {
+                endPoint ++;
+            }
+        } else if(endPoint >= 2 * colSize + rowSize - 3 && endPoint < 2 * (rowSize + colSize) - 5) {
+            if (endSide == topSide) {
+                endPoint ++;
+            }
+        }
+        for (int i = startPoint; i > endPoint; --i) {
+            layertoMap(layer, startRow, startCol, i, &row0, &col0);
+            if (i < colSize - 1) {   //top side
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row0 * mapColNum + col0].right.push_back(vnode);
+            } else if(i >= colSize && i < colSize + rowSize - 2) {   //right side
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row0 * mapColNum + col0].buttom.push_back(vnode);
+            } else if(i >= colSize + rowSize - 2 && i < 2 * colSize + rowSize - 3) {
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row0 * mapColNum + col0].left.push_back(vnode);
+            } else if(i >= 2 * colSize + rowSize - 3 && i < 2 * (rowSize + colSize) - 5) {
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row0 * mapColNum + col0].top.push_back(vnode);
+            }
+        }
+    } /*else {
+        if (startPoint < colSize - 1) {   //top side
+            if (endSide == leftSide) {
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row1 * mapColNum + col1].left.push_back(vnode);
+            } else if(endSide == topSide) {
+                BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+                map[row1 * mapColNum + col1].top.push_back(vnode);
+            }
+        } else if(startPoint >= colSize && startPoint < colSize + rowSize - 2) {   //right side
+            BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+            map[row1 * mapColNum + col1].right.push_back(vnode);
+        } else if(startPoint >= colSize + rowSize - 2 && startPoint < 2 * colSize + rowSize - 3) {
+            BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+            map[row1 * mapColNum + col1].buttom.push_back(vnode);
+        } else if(startPoint >= 2 * colSize + rowSize - 3 && startPoint < 2 * (rowSize + colSize) - 5) {
+            BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
+            map[row1 * mapColNum + col1].left.push_back(vnode);
+        }
+    }*/
 
 }
 
