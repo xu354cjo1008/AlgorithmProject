@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46E30EAF19382CE0007ECD39 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EAE19382CE0007ECD39 /* main.cpp */; };
 		46E30EB119382CE0007ECD39 /* AlgorithmProject.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E30EB019382CE0007ECD39 /* AlgorithmProject.1 */; };
+		46E30EC019382D34007ECD39 /* bump_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EB719382D34007ECD39 /* bump_node.cpp */; };
+		46E30EC119382D34007ECD39 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EB919382D34007ECD39 /* main.cpp */; };
+		46E30EC219382D34007ECD39 /* MPSC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EBA19382D34007ECD39 /* MPSC.cpp */; };
+		46E30EC319382D34007ECD39 /* routing_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EBC19382D34007ECD39 /* routing_map.cpp */; };
+		46E30EC419382D34007ECD39 /* solve_boxnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EBE19382D34007ECD39 /* solve_boxnode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +30,16 @@
 
 /* Begin PBXFileReference section */
 		46E30EAB19382CE0007ECD39 /* AlgorithmProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmProject; sourceTree = BUILT_PRODUCTS_DIR; };
-		46E30EAE19382CE0007ECD39 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		46E30EB019382CE0007ECD39 /* AlgorithmProject.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AlgorithmProject.1; sourceTree = "<group>"; };
+		46E30EB719382D34007ECD39 /* bump_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bump_node.cpp; sourceTree = "<group>"; };
+		46E30EB819382D34007ECD39 /* bump_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bump_node.h; sourceTree = "<group>"; };
+		46E30EB919382D34007ECD39 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		46E30EBA19382D34007ECD39 /* MPSC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPSC.cpp; sourceTree = "<group>"; };
+		46E30EBB19382D34007ECD39 /* MPSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSC.h; sourceTree = "<group>"; };
+		46E30EBC19382D34007ECD39 /* routing_map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = routing_map.cpp; sourceTree = "<group>"; };
+		46E30EBD19382D34007ECD39 /* routing_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = routing_map.h; sourceTree = "<group>"; };
+		46E30EBE19382D34007ECD39 /* solve_boxnode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = solve_boxnode.cpp; sourceTree = "<group>"; };
+		46E30EBF19382D34007ECD39 /* solve_boxnode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = solve_boxnode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +72,15 @@
 		46E30EAD19382CE0007ECD39 /* AlgorithmProject */ = {
 			isa = PBXGroup;
 			children = (
-				46E30EAE19382CE0007ECD39 /* main.cpp */,
+				46E30EB719382D34007ECD39 /* bump_node.cpp */,
+				46E30EB819382D34007ECD39 /* bump_node.h */,
+				46E30EB919382D34007ECD39 /* main.cpp */,
+				46E30EBA19382D34007ECD39 /* MPSC.cpp */,
+				46E30EBB19382D34007ECD39 /* MPSC.h */,
+				46E30EBC19382D34007ECD39 /* routing_map.cpp */,
+				46E30EBD19382D34007ECD39 /* routing_map.h */,
+				46E30EBE19382D34007ECD39 /* solve_boxnode.cpp */,
+				46E30EBF19382D34007ECD39 /* solve_boxnode.h */,
 				46E30EB019382CE0007ECD39 /* AlgorithmProject.1 */,
 			);
 			path = AlgorithmProject;
@@ -117,7 +137,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E30EAF19382CE0007ECD39 /* main.cpp in Sources */,
+				46E30EC219382D34007ECD39 /* MPSC.cpp in Sources */,
+				46E30EC319382D34007ECD39 /* routing_map.cpp in Sources */,
+				46E30EC119382D34007ECD39 /* main.cpp in Sources */,
+				46E30EC419382D34007ECD39 /* solve_boxnode.cpp in Sources */,
+				46E30EC019382D34007ECD39 /* bump_node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
