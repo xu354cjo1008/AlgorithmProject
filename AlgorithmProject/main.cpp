@@ -77,45 +77,7 @@ int main(int argc, const char * argv[])
     node3->relativeY = 2;
     
     RoutingMap *routingMap = new RoutingMap(4,4);
-/*    routingMap->mapInsertNode(0, 0, rightSide, node4);
-    routingMap->mapInsertNode(0, 0, bottomSide, node1);
-    routingMap->mapInsertNode(0, 1, topSide, node4);
-    routingMap->mapInsertNode(0, 1, rightSide, node5);
-    routingMap->mapInsertNode(0, 1, bottomSide, node2);
-    routingMap->mapInsertNode(0, 1, leftSide, node1);
-    routingMap->mapInsertNode(0, 2, topSide, node5);
-    routingMap->mapInsertNode(0, 2, leftSide, node2);
-    routingMap->mapInsertNode(1, 0, rightSide, node1);
-    routingMap->mapInsertNode(1, 1, topSide, node1);
-    routingMap->mapInsertNode(1, 1, rightSide, node2);
-    routingMap->mapInsertNode(1, 1, bottomSide, node3);
-    routingMap->mapInsertNode(1, 2, topSide, node2);
-    routingMap->mapInsertNode(1, 2, leftSide, node3);
-    routingMap->mapInsertNode(2, 0, bottomSide, node6);
-    routingMap->mapInsertNode(2, 1, rightSide, node3);
-    routingMap->mapInsertNode(2, 1, leftSide, node6);
-    routingMap->mapInsertNode(2, 2, topSide, node3);
-    
-    routingMap->mapInsertNode(1, 0, bottomSide, node7);
-    routingMap->mapInsertNode(1, 1, leftSide, node7);
-    routingMap->mapInsertNode(2, 0, rightSide, node7);
-    routingMap->mapInsertNode(2, 1, topSide, node7);
 
-    routingMap->mapInsertNode(0, 0, topSide, node8);
-    routingMap->mapInsertNode(0, 0, leftSide, node9);
-    routingMap->mapInsertNode(1, 0, topSide, node9);
-    routingMap->mapInsertNode(1, 0, leftSide, node10);
-    routingMap->mapInsertNode(2, 0, topSide, node10);
-    routingMap->mapInsertNode(2, 0, leftSide, node11);
-    routingMap->mapInsertNode(0, 2, rightSide, node12);
-    routingMap->mapInsertNode(0, 2, bottomSide, node13);
-    routingMap->mapInsertNode(1, 2, rightSide, node13);
-    routingMap->mapInsertNode(1, 2, bottomSide, node14);
-    routingMap->mapInsertNode(2, 2, rightSide, node14);
-    routingMap->mapInsertNode(2, 2, bottomSide, node15);
-    routingMap->mapInsertNode(2, 2, leftSide, node16);
-    routingMap->mapInsertNode(2, 1, bottomSide, node16);
-*/
     routingMap->nodeInserttoMap(1, 1, node8);
     routingMap->nodeInserttoMap(1, 2, node4);
     routingMap->nodeInserttoMap(1, 3, node5);
@@ -167,6 +129,7 @@ int main(int argc, const char * argv[])
     }
     printf("\n");
     
+    routingMap->ringMaping(1, 1, 1);
     routingMap->printBox(1, 1);
     routingMap->printBox(1, 2);
     routingMap->printBox(1, 3);

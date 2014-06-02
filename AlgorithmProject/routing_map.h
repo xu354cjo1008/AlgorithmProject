@@ -49,6 +49,7 @@ private:
     void layertoMap(int layer, int startRowNum, int startColNum, int pointer, int *rowNum, int *colNum);
     int seqPointertoLayerPointer(int layer, int seqPointer);
     void insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node);
+    void moveNode(int fromRow, int formCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide);
 };
 
 #endif /* defined(__MPCS2__routing_map__) */
