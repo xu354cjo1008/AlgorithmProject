@@ -14,8 +14,8 @@ int main(int argc, const char * argv[])
 {
 
 ////  test data///////////////////////////////////////////
-    int d[7];
-    for (int i= 1; i <=6 ; ++i) {
+    int d[10];
+    for (int i= 1; i <=9 ; ++i) {
         d[i] = i;
     }
     vector<BumpNode*>previousSeq, currentSeq;
@@ -25,8 +25,9 @@ int main(int argc, const char * argv[])
     previousSeq.push_back(node2);
     BumpNode *node3 = new BumpNode(3, &d[5], DirectRoute, false);
     previousSeq.push_back(node3);
-    BumpNode *node7 = new BumpNode(7, nullptr, DirectRoute, false);
+    BumpNode *node7 = new BumpNode(7, &d[7], DirectRoute, false);
     previousSeq.push_back(node7);
+ 
     
 
   
@@ -50,7 +51,7 @@ int main(int argc, const char * argv[])
     BumpNode *node16 = new BumpNode(16, nullptr, DirectRoute, false);
     currentSeq.push_back(node16);
     
-    BumpNode* node6 = new BumpNode(6, &d[6], DirectRoute, false);
+    BumpNode* node6 = new BumpNode(6, &d[9], DirectRoute, false);
     currentSeq.push_back(node6);
     BumpNode *node11 = new BumpNode(11, nullptr, DirectRoute, false);
     currentSeq.push_back(node11);

@@ -44,12 +44,15 @@ private:
     box *map;
     void boxMaping(int mapRow, int mapCol);
     int mapRowNum, mapColNum;
-    void vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *node);
+    void vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *node, bool toBegin);
+    void eraseVnode(int rowNum, int colNum, edges side, int pointer);
     void seqtoMap(int layer, int startRowNym, int startColNum, int pointer, int *rowNum, int *colNum, edges *side);
     void layertoMap(int layer, int startRowNum, int startColNum, int pointer, int *rowNum, int *colNum);
     int seqPointertoLayerPointer(int layer, int seqPointer);
+    edges witchSide(int layer, int startRowNum, int startColNum, int pointer);
     void insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node);
-    void moveNode(int fromRow, int formCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide);
+    void moveNode(int fromRow, int fromCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide, bool seqLeft);
+    void refineBoxRoute(int layer, int startRowNum, int startColNum, int pointer);
 };
 
 #endif /* defined(__MPCS2__routing_map__) */
