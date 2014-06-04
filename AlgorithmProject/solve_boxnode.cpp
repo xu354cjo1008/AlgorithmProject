@@ -61,7 +61,7 @@ void sort_node(box *input)
             int it = find (right_ref.begin(),right_ref.end(),input->buttom[i]->id) - right_ref.begin();
             input->buttom[i]->sort_value = it;
         }
-        sort(input->buttom.begin(),input->buttom.end(),sort_node_cmp);
+        sort(input->buttom.begin()+1,input->buttom.end(),sort_node_cmp);
     }
     else{
         //-------------第二次以後進來開始往順時針出發--------------
@@ -87,7 +87,7 @@ void sort_node(box *input)
                 int it = find (top_ref.begin(),top_ref.end(),input->top[i]->id) - top_ref.begin();
                 input->top[i]->sort_value = it;
             }
-            sort(input->top.begin(),input->top.end(),sort_node_cmp);
+            sort(input->top.begin()+1,input->top.end(),sort_node_cmp);
             
         }
         else if(!input->right_lock)     //right unlock
@@ -111,7 +111,7 @@ void sort_node(box *input)
                 int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();
                 input->right[i]->sort_value = it;
             }
-            sort(input->right.begin(),input->right.end(),sort_node_cmp);
+            sort(input->right.begin()+1,input->right.end(),sort_node_cmp);
             
         }
         else if(!input->buttom_lock)        //buttom unlock
@@ -135,7 +135,7 @@ void sort_node(box *input)
                 int it = find (buttom_ref.begin(),buttom_ref.end(),input->buttom[i]->id) - buttom_ref.begin();
                 input->buttom[i]->sort_value = it;
             }
-            sort(input->buttom.begin(),input->buttom.end(),sort_node_cmp);
+            sort(input->buttom.begin()+1,input->buttom.end(),sort_node_cmp);
         }
         else if(!input->left_lock)          //left unlock
         {
@@ -158,7 +158,7 @@ void sort_node(box *input)
                 int it = find (left_ref.begin(),left_ref.end(),input->left[i]->id) - left_ref.begin();
                 input->left[i]->sort_value = it;
             }
-            sort(input->left.begin(),input->left.end(),sort_node_cmp);
+            sort(input->left.begin()+1,input->left.end(),sort_node_cmp);
         }
 }
     
@@ -168,54 +168,55 @@ bool measure_diagonal(box *input,int node_capacity)
 {
     int left_slash=0;
     int right_slash=0;
-    for(int i=0;i<input->left.size();i++)
-    {
-        for(int j=0;j<input->top.size();j++)
-        {
-            if(input->left[i]->id == input->top[j]->id)
-                left_slash++;
-        }
-        for(int k=0;k<input->right.size();k++)
-        {
-            if(input->left[i]->id == input->right[k]->id)
-                left_slash++;
-        }
-    }
-    for(int i=0;i<input->buttom.size();i++)
-    {
-        for(int j=0;j<input->top.size();j++)
-        {
-            if(input->buttom[i]->id == input->top[j]->id)
-                right_slash++;
-        }
-        for(int k=0;k<input->right.size();k++)
-        {
-            if(input->buttom[i]->id == input->right[k]->id)
-                right_slash++;
-        }
-    }
     
-    for(int j=0;j<input->top.size();j++)   //左邊沒有包到左上角 top[0] 所以再多做一次
-    {
-        if(input->top[0]->id == input->top[j]->id)
-            left_slash++;
-    }
-    for(int k=0;k<input->right.size();k++)
-    {
-        if(input->top[0]->id == input->right[k]->id)
-            left_slash++;
-    }
+    input->left.push_back(input->top.front());
+    input->right.push_back(input->buttom.front());
+    input->top.push_back(input->right.front());
+    input->buttom.push_back(input->left.front());
+    
+    for(int i=0;i<input->left.size();i++)
+        for(int j=0;j<input->right.size();j++)
+            if(input->left[i]->id==input->right[j]->id){
+                left_slash++;
+                right_slash++;
+            }
+    for(int i=0;i<input->top.size();i++)
+        for(int j=0;j<input->buttom.size();j++)
+            if(input->top[i]->id==input->buttom[j]->id){
+                left_slash++;
+                right_slash++;
+            }
+    
+    input->left.pop_back();
+    for(int i=0;i<input->left.size();i++)
+        for(int j=0;j<input->top.size();j++)
+            if(input->left[i]->id==input->top[j]->id)
+                left_slash++;
+        
+    input->right.pop_back();
+    for(int i=0;i<input->right.size();i++)
+        for(int j=0;j<input->buttom.size();j++)
+            if(input->right[i]->id==input->buttom[j]->id)
+                left_slash++;
+    
+    input->left.push_back(input->top.front());
+    input->right.push_back(input->buttom.front());
+    
+    input->top.pop_back();
+    for(int i=0;i<input->top.size();i++)
+        for(int j=0;j<input->right.size();j++)
+            if(input->top[i]->id==input->right[j]->id)
+                right_slash++;
+    
+    input->buttom.pop_back();
+    for(int i=0;i<input->buttom.size();i++)
+        for(int j=0;j<input->left.size();j++)
+            if(input->buttom[i]->id==input->left[j]->id)
+                right_slash++;
+    
+    input->left.pop_back();
+    input->right.pop_back();
 
-    for(int j=0;j<input->top.size();j++)   //底部沒有包到左下角 left[0] 所以再多做一次
-    {
-        if(input->left[0]->id == input->top[j]->id)
-            left_slash++;
-    }
-    for(int k=0;k<input->right.size();k++)
-    {
-        if(input->left[0]->id == input->right[k]->id)
-            left_slash++;
-    }
     
     
     if(left_slash > node_capacity || right_slash > node_capacity)
