@@ -445,6 +445,64 @@ void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
     edges side1 = topSide;
     for (int i = 0; i < sequenceNum - 4; ++i) {
         layertoMap(layer, startRowNum, startColNum, i, &row0, &col0);
+        edges xWitchSide = witchSide(layer, startRowNum, startColNum, i);
+        switch (xWitchSide) {
+            case topAngle:
+                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
+                }
+                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
+                }
+                break;
+            case rightAngle:
+                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
+                }
+                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
+                }
+                break;
+            case bottomAngle:
+                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
+                }
+                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
+                }
+                break;
+            case leftAngle:
+                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
+                }
+                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
+                }
+                break;
+            case topSide:
+                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
+                }
+                break;
+            case rightSide:
+                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
+                }
+                break;
+            case bottomSide:
+                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
+                }
+                break;
+            case leftSide:
+                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
+                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
+                }
+                break;
+                
+            default:
+                break;
+        }
         for (int j = 0; j < sequenceNum; ++j) {
             seqtoMap(layer, startRowNum, startColNum, j, &row1, &col1, &side1);
             int pointerTmp = seqPointertoLayerPointer(layer, j);

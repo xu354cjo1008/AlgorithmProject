@@ -42,6 +42,7 @@ public:
 
 private:
     box *map;
+    vector<BumpNode *>outCircleSequence;
     void boxMaping(int mapRow, int mapCol);
     int mapRowNum, mapColNum;
     void vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *node, bool toBegin);
