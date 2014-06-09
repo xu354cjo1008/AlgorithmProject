@@ -39,12 +39,14 @@ public:
     void printBox(int layerRowNum, int layerColNum);
     
     void ringMaping(int layer, int startRowNum, int startColNum);
+    box *map;
+    int mapRowNum, mapColNum;
 
 private:
-    box *map;
+    
     vector<BumpNode *>outCircleSequence;
     void boxMaping(int mapRow, int mapCol);
-    int mapRowNum, mapColNum;
+    
     void vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *node, bool toBegin);
     void eraseVnode(int rowNum, int colNum, edges side, int pointer);
     void seqtoMap(int layer, int startRowNym, int startColNum, int pointer, int *rowNum, int *colNum, edges *side);

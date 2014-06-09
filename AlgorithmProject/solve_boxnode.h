@@ -25,7 +25,9 @@ struct box
     bool right_lock;
     bool buttom_lock;
     bool left_lock;
+    bool routed;
     int cooridinate;
+    int path_for_outcircle; 
 };
 
 bool boxnode_measurement(box *input);

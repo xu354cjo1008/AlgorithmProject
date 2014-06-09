@@ -42,6 +42,10 @@ public:
     int absolutedX1, absolutedY1, absolutedX2, absolutedY2;
     int relativeX, relativeY;
     
+    int route_type; //0:straight   |1/2|  |4\3|
+    
+    
+    BumpNode *route_next;
     BumpNode *nextNode;
     Direction nextDirection;
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46341E1F194588FB00154FBD /* mapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46341E1D194588FB00154FBD /* mapping.cpp */; };
+		46341E24194589AE00154FBD /* readFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46341E22194589AE00154FBD /* readFile.cpp */; };
 		46E30EB119382CE0007ECD39 /* AlgorithmProject.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E30EB019382CE0007ECD39 /* AlgorithmProject.1 */; };
 		46E30EC019382D34007ECD39 /* bump_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EB719382D34007ECD39 /* bump_node.cpp */; };
 		46E30EC119382D34007ECD39 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E30EB919382D34007ECD39 /* main.cpp */; };
@@ -29,6 +31,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		46341E1D194588FB00154FBD /* mapping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mapping.cpp; sourceTree = "<group>"; };
+		46341E1E194588FB00154FBD /* mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapping.h; sourceTree = "<group>"; };
+		46341E22194589AE00154FBD /* readFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = readFile.cpp; sourceTree = "<group>"; };
+		46341E23194589AE00154FBD /* readFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = readFile.h; sourceTree = "<group>"; };
+		46341E251945B6E300154FBD /* test144.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test144.in; sourceTree = "<group>"; };
 		46E30EAB19382CE0007ECD39 /* AlgorithmProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E30EB019382CE0007ECD39 /* AlgorithmProject.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AlgorithmProject.1; sourceTree = "<group>"; };
 		46E30EB719382D34007ECD39 /* bump_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bump_node.cpp; sourceTree = "<group>"; };
@@ -72,6 +79,11 @@
 		46E30EAD19382CE0007ECD39 /* AlgorithmProject */ = {
 			isa = PBXGroup;
 			children = (
+				46341E251945B6E300154FBD /* test144.in */,
+				46341E22194589AE00154FBD /* readFile.cpp */,
+				46341E23194589AE00154FBD /* readFile.h */,
+				46341E1D194588FB00154FBD /* mapping.cpp */,
+				46341E1E194588FB00154FBD /* mapping.h */,
 				46E30EB719382D34007ECD39 /* bump_node.cpp */,
 				46E30EB819382D34007ECD39 /* bump_node.h */,
 				46E30EB919382D34007ECD39 /* main.cpp */,
@@ -137,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46341E1F194588FB00154FBD /* mapping.cpp in Sources */,
+				46341E24194589AE00154FBD /* readFile.cpp in Sources */,
 				46E30EC219382D34007ECD39 /* MPSC.cpp in Sources */,
 				46E30EC319382D34007ECD39 /* routing_map.cpp in Sources */,
 				46E30EC119382D34007ECD39 /* main.cpp in Sources */,
@@ -251,6 +265,7 @@
 				46E30EB619382CE0007ECD39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
