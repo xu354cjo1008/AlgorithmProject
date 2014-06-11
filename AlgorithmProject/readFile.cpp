@@ -10,9 +10,10 @@
 #include <fstream>
 #include <math.h>
 #include <algorithm>
-bool greater_brightX (BumpNode i,BumpNode j) { return (i.absolutedX2 > j.absolutedX2); }
-bool smaller_bbottomY (BumpNode i,BumpNode j) { return (i.absolutedY2 < j.absolutedY2); }
-bool smaller_bleftX (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.absolutedX1); }
+bool smaller_absoluteX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.absolutedX1); }
+bool greater_absoluteY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
+bool greater_absoluteX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
+bool smaller_absoluteY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
 
 ReadFile::ReadFile()
 {
@@ -62,8 +63,8 @@ ReadFile::ReadFile()
         BumpNode *input_b = new BumpNode(0, 0, UnDirectRoute, false);
         input_b->wireId = &driver[id].did;
         input_b->absolutedX1 = left;
-        input_b->absolutedX2 = right;
         input_b->absolutedY1 = bottom;
+        input_b->absolutedX2 = right;
         input_b->absolutedY2 = top;
         bump.push_back(*input_b);
     } //end of reading the layout of bumps
@@ -78,30 +79,52 @@ void ReadFile::alignment(int bumpNum)
 
     int n = sqrt(bumpNum) / 2;
     numBvec = n;
-    bvec = new vector<BumpNode>[n]; //create n vectors to store rings
+    bvec = new vector<BumpNode>[n-1]; //create n vectors to store rings
+    
     
     //if indicator id true:
-    for( int j = 0; j <= n; j++){
-        for(int i = 0; bump_dup[i].absolutedY2 < bump_dup[i+1].absolutedY2; i++){
-            bvec[j].push_back(bump_dup[i]);
-            bump_dup.erase(bump_dup.begin() + i);
+    for( int j = n-1 ; j > 0; j--){
+    	int m = max(bump_dup.absoluteY2);
+        for(int i = 0; i < bump_dup.size(); i++){
+            if(bump_dup[i].absoluteY2 == m){
+            	bvec[j].push_back(bump_dup[i]);
+            	bump_dup.erase(bump_dup.begin() + i);	
+            }
+            
         }
-        sort(bump_dup.begin(), bump_dup.end(), greater_brightX);
-        for(int i = 0; bump_dup[i].absolutedX2 < bump_dup[i+1].absolutedX2; i++){
-            bvec[j].push_back(bump_dup[i]);
-            bump_dup.erase(bump_dup.begin() + i);
+        sort(bvec[j].begin(), bvec[j].end(), smaller_absoluteX1);
+        int q = bvec[j].size();
+        // end of reading the upper edge of bump square 
+        m = max(bump_dup.absoluteX2);
+        for(int i = 0; i < bump_dup.size(); i++){
+            if(bump_dup[i].absoluteX2 == m){
+            	bvec[j].push_back() = bump_dup[i]
+                bump_dup.erase(bump_dup[i])
+            }
         }
-        sort(bump_dup.begin(), bump_dup.end(), smaller_bbottomY);
-        for(int i = 0; bump_dup[i].absolutedY2 < bump_dup[i+1].absolutedY2; i++){
-            bvec[j].push_back(bump_dup[i]);
-            bump_dup.erase(bump_dup.begin() + i);
-            sort(bump_dup.begin(), bump_dup.end(), smaller_bleftX);
-            for(int i = 0; bump_dup[i].absolutedX1 < bump_dup[i+1].absolutedX1; i++){
-                bvec[j].push_back(bump_dup[i]);
-                bump_dup.erase(bump_dup.begin() + i);
-            } //run LCS algorithms with all bvec
-        }
-    }
+        sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteY1);
+        q = bvec[j].size();
+	 //end of mapping the right edge 
+        m = min(bump_dup.absoluteY1);
+        for(int i = 0; i < bump_dup.size(); i++){
+            if(bump_dup[i].absoluteY1 == m){
+                bvec[j].push_back() = bump_dup[i]
+                bump_dup.erase(bump_dup[i])
+            }
+         }
+         sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteX1);
+         q = bvec[j].size();
+  	  // end of mapping the lower edge
+         m = min(bump_dup.absoluteX1);
+         for(int i = 0; i < bump_dup.size(); i++){
+             if(bump_dup[i].absoluteX1 == m){
+                bvec[j].push_back() = bump_dup[i]
+                bump_dup.erase(bump_dup[i])
+              }   
+          }
+	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absoluteY1);
+	 //end of mapping the left edge
+    } //run LCS algorithms with all bvec
 }
 void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
     //lcs_bump dpary[num_driver][n];//DP table
