@@ -50,5 +50,9 @@ private:
 
 };
 
-
+int MaxY2(vector<BumpNode>*bump_dup);
+int MaxX2(vector<BumpNode>*bump_dup);
+int MinY1(vector<BumpNode>*bump_dup);
+int MinX1(vector<BumpNode>*bump_dup);
+    
 #endif /* defined(__AlgorithmProject__readFile__) */
