@@ -99,8 +99,8 @@ int main(int argc, const char * argv[])
 
 //read file
     ReadFile *readFile = new ReadFile();
-    int k = readFile->numBvec - 1;
-    while (k >= 0) {
+    int k = 0;
+    while (k < readFile->numBvec) {
         readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());
         for (int i = 0; i < readFile->bvec[k].size(); ++i) {
             currentSeq.push_back(&readFile->bvec[k][i]);
@@ -118,15 +118,17 @@ int main(int argc, const char * argv[])
             }
         }
         printf("\n");
-        MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
-        mpsc->compute();
-        delete mpsc;
-        routingMap->initMapinLayer(readFile->numBvec - k - 1, readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-        
-        mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
-        maping->mapping_incircle(routingMap->map);
-      //  maping->mapping_outcircle(routingMap->map);
-        maping->route_output(routingMap->map);
+        if ( k > 0) {
+            MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
+            mpsc->compute();
+            delete mpsc;
+            routingMap->initMapinLayer(readFile->numBvec - k - 1, readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
+            
+            mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
+            maping->mapping_incircle(routingMap->map);
+            //  maping->mapping_outcircle(routingMap->map);
+            maping->route_output(routingMap->map);
+        }
         k--;
     }
     

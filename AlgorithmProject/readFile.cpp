@@ -15,25 +15,13 @@ bool smaller_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.abs
 bool greater_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
 bool greater_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
 bool smaller_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
-<<<<<<< HEAD
-bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2);}
-bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2);}
-bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2);}
-bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2);}
-=======
-bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2)?i:j;}
-bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2)?i:j;}
-bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2)?i:j;}
-bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2)?i:j;}
->>>>>>> FETCH_HEAD
-
 
 ReadFile::ReadFile()
 {
-    //  char buffer[200];
+  //  char buffer[200];
     fstream infile("test144.in");
     //fstream infile;
-    // infile.open("test144.in", ios::in); //read test file
+   // infile.open("test144.in", ios::in); //read test file
     if (!infile.is_open()) {
         printf("read file error");
     }
@@ -51,11 +39,11 @@ ReadFile::ReadFile()
     infile >> junk3 >> spacing;
     infile >> junk4 >> num_driver;
     
-    // dsize = new vector<Dsize>[num_driver - 1];
-    //  bsize(num_bump-1);
-    
-    // vector<int> num_d(num_driver-1);
-    // vector<int*> num_b(num_bump-1);
+   // dsize = new vector<Dsize>[num_driver - 1];
+  //  bsize(num_bump-1);
+
+   // vector<int> num_d(num_driver-1);
+   // vector<int*> num_b(num_bump-1);
     DriverNode input_d;
     int id, left, right, bottom, top;
     
@@ -89,7 +77,7 @@ void ReadFile::alignment(int bumpNum)
 {
     
     vector<BumpNode>bump_dup = bump;
-    
+
     int n = sqrt(bumpNum) / 2;
     numBvec = n;
     bvec = new vector<BumpNode>[n-1]; //create n vectors to store rings
@@ -97,91 +85,87 @@ void ReadFile::alignment(int bumpNum)
     
     //if indicator id true:
     for( int j = n-1 ; j > 0; j--){
-<<<<<<< HEAD
-    	int m = max(bump_dup, max_absolutedY2);
-=======
-    	int m = max(bump_dup.begin(), bump_dup.end(), max_absolutedY2);
->>>>>>> FETCH_HEAD
+    	int m = MaxY2(&bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedY2 == m){
             	bvec[j].push_back(bump_dup[i]);
-            	bump_dup.erase(bump_dup.begin() + i);
+            	bump_dup.erase(bump_dup.begin() + i);	
             }
             
         }
         sort(bvec[j].begin(), bvec[j].end(), smaller_absolutedX1);
         int q = bvec[j].size();
-<<<<<<< HEAD
-        // end of reading the upper edge of bump square
-        m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
+        // end of reading the upper edge of bump square 
+        m = MaxX2(&bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedX2 == m){
-            	bvec[j].push_back(bump_dup[i]);
+            	bvec[j].push_back(bump_dup[i]);  
                 bump_dup.erase(bump_dup.begin() + i);
             }
         }
         sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedY1);
         q = bvec[j].size();
-        //end of mapping the right edge
-        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedY2);
+	 //end of mapping the right edge 
+        m = MinY1(&bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedY1 == m){
-                bvec[j].push_back(bump_dup[i]);
-                bump_dup.erase(bump_dup.begin() + i);
-=======
-        // end of reading the upper edge of bump square 
-        m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
-        for(int i = 0; i < bump_dup.size(); i++){
-            if(bump_dup[i].absoluteX2 == m){
-            	bvec[j].push_back(bump_dup[i]);  
-                bump_dup.erase(bump_dup[i].begin() + i);
->>>>>>> FETCH_HEAD
-            }
-        }
-        sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedX1);
-        q = bvec[j].size();
-<<<<<<< HEAD
-        // end of mapping the lower edge
-        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
-        for(int i = 0; i < bump_dup.size(); i++){
-            if(bump_dup[i].absolutedX1 == m){
-                bvec[j].push_back(bump_dup[i]);
-                bump_dup.erase(bump_dup.begin() + i);
-            }
-        }
-        sort(bvec[j].begin() + q, bvec[j].end(), smaller_absolutedY1);
-        //end of mapping the left edge
-=======
-	 //end of mapping the right edge 
-        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedY2);
-        for(int i = 0; i < bump_dup.size(); i++){
-            if(bump_dup[i].absoluteY1 == m){
                 bvec[j].push_back(bump_dup[i]); 
-                bump_dup.erase(bump_dup[i].begin() + i);
+                bump_dup.erase(bump_dup.begin() + i);
             }
          }
-         sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteX1);
+         sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedX1);
          q = bvec[j].size();
   	  // end of mapping the lower edge
-         m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
+         m = MinX1(&bump_dup);
          for(int i = 0; i < bump_dup.size(); i++){
-             if(bump_dup[i].absoluteX1 == m){
+             if(bump_dup[i].absolutedX1 == m){
                 bvec[j].push_back(bump_dup[i]);  
-                bump_dup.erase(bump_dup[i].begin() + i);
+                bump_dup.erase(bump_dup.begin() + i);
               }   
           }
-	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absoluteY1);
+	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absolutedY1);
 	 //end of mapping the left edge
->>>>>>> FETCH_HEAD
     } //run LCS algorithms with all bvec
+}
+int MaxY2(vector<BumpNode>*bump_dup){
+	int max = (*bump_dup)[0].absolutedY2;
+	for(int i =0; i < bump_dup->size(); i++){
+		if((*bump_dup)[i].absolutedY2 > max)
+		   max = (*bump_dup)[i].absolutedY2;
+	}
+    return max;
+}
+int MaxX2(vector<BumpNode>*bump_dup){
+	int max = (*bump_dup)[0].absolutedX2;
+	for(int i =0; i < bump_dup->size(); i++){
+		if((*bump_dup)[i].absolutedX2 > max)
+		   max = (*bump_dup)[i].absolutedX2;
+	}
+    return max;
+}
+int MinY1(vector<BumpNode>*bump_dup){
+	int min = (*bump_dup)[0].absolutedY1;
+	for(int i =0; i < bump_dup->size(); i++){
+		if((*bump_dup)[i].absolutedY1 < min)
+		   min =(*bump_dup)[i].absolutedY1;
+	}
+    return min;
+}
+int MinX1(vector<BumpNode>*bump_dup){
+	int min = (*bump_dup)[0].absolutedX1;
+	for(int i =0; i < bump_dup->size(); i++){
+		if((*bump_dup)[i].absolutedX1 < min)
+		min = (*bump_dup)[i].absolutedX1;
+	}
+    return min;
 }
 void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
     //lcs_bump dpary[num_driver][n];//DP table
-    *dpary = new lcs_bump[num_driver];
+    dpary = new lcs_bump*[num_driver];
     for (int i = 0; i < num_driver; ++i) {
         dpary[i] = new lcs_bump[n];
     }
-    for(int i = 0; i <= num_driver; i++)
+    for(int i = 0; i < num_driver; i++)
         dpary[i][0].cs = 0;
     for(int i = 0; i <= n; i++)
         dpary[0][i].cs = 0;
@@ -211,19 +195,19 @@ void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int
         }
     }
     label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);
-    //    if( driver_vec.size() == 0 || bump_vec.size() == 0)
-    //        return;
-    //    if(dpary[i][j].prev == *dpary[i-1][j-1].cs)
-    //        label_LCS(i-1,j-1);
-    //    bump_vec[j].lcsType = DirectRoute;
-    //    else if(dpary[i][j].prev == *dpary[i-1][j].cs)
-    //        label_LCS(i-1,j);
-    //    else if(dpary[i][j].prev == *dpary[i][j-1].cs)
-    //        label_LCS(i,j-1);
-    //	for(int u = 0; u < j; u++){
-    //		if(bump_vec[u].lcsType != DirectRoute)
-    //			bump_vec[u].lcsType = UnDirectRoute;
-    //	}
+//    if( driver_vec.size() == 0 || bump_vec.size() == 0)
+//        return;
+//    if(dpary[i][j].prev == *dpary[i-1][j-1].cs)
+//        label_LCS(i-1,j-1);
+//    bump_vec[j].lcsType = DirectRoute;
+//    else if(dpary[i][j].prev == *dpary[i-1][j].cs)
+//        label_LCS(i-1,j);
+//    else if(dpary[i][j].prev == *dpary[i][j-1].cs)
+//        label_LCS(i,j-1);
+//	for(int u = 0; u < j; u++){
+//		if(bump_vec[u].lcsType != DirectRoute)
+//			bump_vec[u].lcsType = UnDirectRoute;
+//	}
 }
 
 
@@ -243,3 +227,4 @@ void ReadFile::label_LCS(int i, int j, vector<BumpNode>*bump_vec)
 			(*bump_vec)[u].lcsType = UnDirectRoute;
 	}
 }
+
