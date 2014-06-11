@@ -15,10 +15,17 @@ bool smaller_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.abs
 bool greater_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
 bool greater_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
 bool smaller_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
+<<<<<<< HEAD
 bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2);}
 bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2);}
 bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2);}
 bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2);}
+=======
+bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2)?i:j;}
+bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2)?i:j;}
+bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2)?i:j;}
+bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2)?i:j;}
+>>>>>>> FETCH_HEAD
 
 
 ReadFile::ReadFile()
@@ -90,7 +97,11 @@ void ReadFile::alignment(int bumpNum)
     
     //if indicator id true:
     for( int j = n-1 ; j > 0; j--){
+<<<<<<< HEAD
     	int m = max(bump_dup, max_absolutedY2);
+=======
+    	int m = max(bump_dup.begin(), bump_dup.end(), max_absolutedY2);
+>>>>>>> FETCH_HEAD
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedY2 == m){
             	bvec[j].push_back(bump_dup[i]);
@@ -100,6 +111,7 @@ void ReadFile::alignment(int bumpNum)
         }
         sort(bvec[j].begin(), bvec[j].end(), smaller_absolutedX1);
         int q = bvec[j].size();
+<<<<<<< HEAD
         // end of reading the upper edge of bump square
         m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
         for(int i = 0; i < bump_dup.size(); i++){
@@ -116,10 +128,19 @@ void ReadFile::alignment(int bumpNum)
             if(bump_dup[i].absolutedY1 == m){
                 bvec[j].push_back(bump_dup[i]);
                 bump_dup.erase(bump_dup.begin() + i);
+=======
+        // end of reading the upper edge of bump square 
+        m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
+        for(int i = 0; i < bump_dup.size(); i++){
+            if(bump_dup[i].absoluteX2 == m){
+            	bvec[j].push_back(bump_dup[i]);  
+                bump_dup.erase(bump_dup[i].begin() + i);
+>>>>>>> FETCH_HEAD
             }
         }
         sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedX1);
         q = bvec[j].size();
+<<<<<<< HEAD
         // end of mapping the lower edge
         m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
         for(int i = 0; i < bump_dup.size(); i++){
@@ -130,6 +151,28 @@ void ReadFile::alignment(int bumpNum)
         }
         sort(bvec[j].begin() + q, bvec[j].end(), smaller_absolutedY1);
         //end of mapping the left edge
+=======
+	 //end of mapping the right edge 
+        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedY2);
+        for(int i = 0; i < bump_dup.size(); i++){
+            if(bump_dup[i].absoluteY1 == m){
+                bvec[j].push_back(bump_dup[i]); 
+                bump_dup.erase(bump_dup[i].begin() + i);
+            }
+         }
+         sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteX1);
+         q = bvec[j].size();
+  	  // end of mapping the lower edge
+         m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
+         for(int i = 0; i < bump_dup.size(); i++){
+             if(bump_dup[i].absoluteX1 == m){
+                bvec[j].push_back(bump_dup[i]);  
+                bump_dup.erase(bump_dup[i].begin() + i);
+              }   
+          }
+	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absoluteY1);
+	 //end of mapping the left edge
+>>>>>>> FETCH_HEAD
     } //run LCS algorithms with all bvec
 }
 void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
