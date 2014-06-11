@@ -1,0 +1,693 @@
+TAlgorithmProject
+v6
+r1
+cCheck dependencies
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+c00000000530295C100000000000000AA
+t1392678337
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c000000005397B826000000000000044C
+t1402452006
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005397B82600000000000001DE
+t1402452006
+s478
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
+c000000005397B82C000000000000681C
+t1402452012
+s26652
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
+c000000005397B82C000000000006E8B0
+t1402452012
+s452784
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
+c000000005397B82C0000000000004734
+t1402452012
+s18228
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
+c000000005397B82D000000000000FC6C
+t1402452013
+s64620
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
+c000000005397B82D000000000000F6A0
+t1402452013
+s63136
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
+c000000005397B82D0000000000006254
+t1402452013
+s25172
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
+c000000005397B82D000000000000E0F8
+t1402452013
+s57592
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
+c000000005397B82D000000000000D6DC
+t1402452013
+s55004
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
+c000000005397B82D0000000000006308
+t1402452013
+s25352
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
+c000000005397B82D0000000000004050
+t1402452013
+s16464
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
+c000000005397B82D0000000000008570
+t1402452013
+s34160
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
+c000000005397B82D0000000000005EA0
+t1402452013
+s24224
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
+c000000005397B82D0000000000005FAC
+t1402452013
+s24492
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
+c000000005397B82D0000000000004440
+t1402452013
+s17472
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
+c000000005397B82D000000000000AA28
+t1402452013
+s43560
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
+c000000005397B82D0000000000003E2C
+t1402452013
+s15916
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
+c000000005397B82D0000000000030B04
+t1402452013
+s199428
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
+c000000005397B82D0000000000005E54
+t1402452013
+s24148
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
+c000000005397B82D0000000000006A90
+t1402452013
+s27280
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
+c000000005397B82D00000000000178AC
+t1402452013
+s96428
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
+c000000005397B82D000000000001ADC8
+t1402452013
+s110024
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
+c000000005397B82D000000000001028C
+t1402452013
+s66188
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
+c000000005397B82D0000000000008800
+t1402452013
+s34816
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
+c000000005397B82D0000000000011090
+t1402452013
+s69776
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
+c000000005397B82D000000000000882C
+t1402452013
+s34860
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
+c000000005397B82D00000000000067AC
+t1402452013
+s26540
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
+c000000005397B82D0000000000008DEC
+t1402452013
+s36332
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
+c000000005397B82D0000000000004C08
+t1402452013
+s19464
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_stats.dylib
+c000000005397B82D0000000000002428
+t1402452013
+s9256
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
+c000000005397B82D000000000000439C
+t1402452013
+s17308
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
+c000000005397B82D0000000000006768
+t1402452013
+s26472
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
+c000000005397B82D00000000000172F4
+t1402452013
+s94964
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include/module.map
+c000000005397B8360000000000000ADC
+t1402452022
+s2780
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
+c000000005397B8370000000000001770
+t1402452023
+s6000
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp
+c000000005397BA9000000000000036A3
+t1402452624
+s13987
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.h
+c000000005397BA900000000000000431
+t1402452624
+s1073
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp
+c000000005397BA90000000000000038F
+t1402452624
+s911
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+c000000005397BA900000000000000443
+t1402452624
+s1091
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp
+c000000005397BA9000000000000018BE
+t1402452624
+s6334
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp
+c000000005397BA900000000000006C34
+t1402452624
+s27700
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.h
+c000000005397BA9000000000000003EB
+t1402452624
+s1003
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp
+c000000005397FBFD00000000000018F8
+t1402469373
+s6392
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.h
+c000000005397BA9000000000000003E1
+t1402452624
+s993
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp
+c000000005397BA90000000000000D3E0
+t1402452624
+s54240
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.h
+c000000005397BA900000000000000800
+t1402452624
+s2048
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp
+c000000005397BA900000000000001D2F
+t1402452624
+s7471
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h
+c000000005397BA9000000000000002D8
+t1402452624
+s728
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/AlgorithmProject.LinkFileList
+c000000005397F4C8000000000000054E
+t1402467528
+s1358
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o
+t1402467530
+s179832
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o
+t1402467591
+s6416
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o
+t1402467592
+s136052
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o
+t1402467530
+s152488
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o
+t1402469374
+s260892
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o
+t1402467530
+s307708
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o
+t1402467592
+s196908
+
+N/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject
+t1402469199
+s286148
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp
+r0
+
+CBuild AST from /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesb2d6747d3348b941^bdfc767d3348b941^---0#1#1#--18"Check dependencies36"312A2785-F922-4424-80AD-241666700FF8-
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160328.860367
+e424160330.163723
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:211:53: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                    int k = currentSequence->size() - 1;
+o                        ~   ~~~~~~~~~~~~~~~~~~~~~~~~^~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:307:45: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            int k = currentSequence->size() - 1;
+o                ~   ~~~~~~~~~~~~~~~~~~~~~~~~^~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:341:47: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for (int j = previousSequence->size() - 1; j >= 0; --j) {
+o                 ~   ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:346:90: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                    x.node2 = (*previousSequence).size() - j + (*currentSequence).size() - 1;
+o                            ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:358:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o    mis = new MIS(previousSequence->size()+currentSequence->size(), previousSequence->size()+currentSequence->size());
+o              ~~~ ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:358:93: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o    mis = new MIS(previousSequence->size()+currentSequence->size(), previousSequence->size()+currentSequence->size());
+o              ~~~                                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+o6 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp226"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o AlgorithmProject/MPSC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler567fdc482c48b941^ff052a4a2c48b941^-2121"/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:211:53: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                    int k = currentSequence->size() - 1;                        ~   ~~~~~~~~~~~~~~~~~~~~~~~~^~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:307:45: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            int k = currentSequence->size() - 1;                ~   ~~~~~~~~~~~~~~~~~~~~~~~~^~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:341:47: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for (int j = previousSequence->size() - 1; j >= 0; --j) {                 ~   ~~~~~~~~~~~~~~~~~~~~~~~~~^~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:346:90: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                    x.node2 = (*previousSequence).size() - j + (*currentSequence).size() - 1;                            ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:358:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]    mis = new MIS(previousSequence->size()+currentSequence->size(), previousSequence->size()+currentSequence->size());              ~~~ ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp:358:93: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]    mis = new MIS(previousSequence->size()+currentSequence->size(), previousSequence->size()+currentSequence->size());              ~~~                                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~6 warnings generated.-0#0#1#-19%DVTDocumentLocation2@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp0000000000000000^3790"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o AlgorithmProject/MPSC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o36"A1200AD9-1697-4FD8-AB09-E67AD3698E55-
+bC2BB5A1E-908F-409E-8FAD-03887CECA8F3
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160391.401197
+e424160391.446105
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp236"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o AlgorithmProject/bump_node.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler91d066872c48b941^1efe72872c48b941^---0#0#1#-19%DVTDocumentLocation2@97"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp0000000000000000^3820"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o AlgorithmProject/bump_node.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o36"0EEAC471-F9FF-4EC2-92D8-E73FCC062A51-
+bC1471276-E632-4FB8-BBBD-C6A08612076F
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160391.399831
+e424160392.301114
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.h
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp:104:61: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+o        readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());
+o        ~~~~~~~~                                            ^~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp:104:86: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+o        readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());
+o        ~~~~~~~~                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp226"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o AlgorithmProject/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerada366872c48b941^ce194d882c48b941^-864"/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp:104:61: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]        readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());        ~~~~~~~~                                            ^~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp:104:86: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]        readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());        ~~~~~~~~                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#60#103#60#3574#0#22"Value Conversion Issue2(3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#60#103#83#3574#22#3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#8#103#16#3522#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#85#103#85#3599#0#22"Value Conversion Issue2(3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#85#103#109#3599#23#3@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^103#8#103#16#3522#0#-0#0#1#-19%DVTDocumentLocation4@92"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp0000000000000000^3790"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o AlgorithmProject/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o36"C2D6F48B-511C-43A4-97EF-7A734A7B3464-
+bC1471276-E632-4FB8-BBBD-C6A08612076F
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160328.856790
+e424160330.064163
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:90:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->top[node_order]->absolutedX1 = map->right[0]->absolutedX1 - (step_width*(map->top.size()-node_order+1));
+o                                                  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:93:73: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->right[i]->absolutedY1 = map->right[0]->absolutedY2 + (step_width*(map->top.size()-node_order+1));
+o                                           ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:101:81: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col++,3,map->right.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:107:76: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            map->top[node_order]->absolutedX1 = map->right[0]->absolutedX1 - (step_width*(map->top.size()-node_order+1));
+o                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:113:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->buttom.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:126:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row++,col,0,map->buttom.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:138:35: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->left.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:151:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col--,1,map->left.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:160:83: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->right[node_order]->absolutedY1 = map->buttom[0]->absolutedY1 - (step_width*(map->right.size()-node_order+1));
+o                                                    ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:161:75: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->buttom[i]->absolutedX1 = map->buttom[0]->absolutedX1 - (step_width*(map->right.size()-node_order+1));
+o                                            ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:170:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row++,col,3,map->buttom.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:182:35: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->left.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:195:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col--,0,map->left.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:202:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            map->right[node_order]->absolutedY1 = map->buttom[0]->absolutedY1 - (step_width*(map->right.size()-node_order+1));
+o                                                ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:207:34: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->top.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:220:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row++,col,1,map->left.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:228:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->buttom[node_order]->absolutedX1 = map->left[0]->absolutedX2 + (step_width*(map->buttom.size()-node_order+1));
+o                                                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:231:71: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->left[i]->absolutedY1 = map->left[0]->absolutedY1 - (step_width*(map->buttom.size()-node_order+1));
+o                                          ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:239:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col--,1,map->left.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:245:78: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            map->buttom[node_order]->absolutedX1 = map->left[0]->absolutedX2 + (step_width*(map->buttom.size()-node_order+1));
+o                                                 ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:251:34: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->top.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:264:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row--,col,1,map->top.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:276:36: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->right.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:289:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col++,1,map->top.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:298:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->left[node_order]->absolutedY1 = map->top[0]->absolutedY2 + (step_width*(map->left.size()-node_order+1));
+o                                                   ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:299:69: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                map->top[i]->absolutedX1 = map->top[0]->absolutedX2 + (step_width*(map->left.size()-node_order+1));
+o                                         ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:308:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row--,col,1,map->top.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:320:36: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->right.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:333:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row,col++,1,map->top.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:340:75: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            map->left[node_order]->absolutedY1 = map->top[0]->absolutedY2 + (step_width*(map->left.size()-node_order+1));
+o                                               ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:345:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=map->buttom.size()-1;i<=1;i++){
+o                ~ ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:358:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o                        find_path_destination(map1,row++,col,1,map->top.size()-i,side_length,row_col_start);
+o                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~
+o32 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp232"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o AlgorithmProject/mapping.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler93e2db482c48b941^1573104a2c48b941^-12285"/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:90:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->top[node_order]->absolutedX1 = map->right[0]->absolutedX1 - (step_width*(map->top.size()-node_order+1));                                                  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:93:73: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->right[i]->absolutedY1 = map->right[0]->absolutedY2 + (step_width*(map->top.size()-node_order+1));                                           ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:101:81: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col++,3,map->right.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:107:76: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            map->top[node_order]->absolutedX1 = map->right[0]->absolutedX1 - (step_width*(map->top.size()-node_order+1));                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:113:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->buttom.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:126:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row++,col,0,map->buttom.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:138:35: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->left.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:151:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col--,1,map->left.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:160:83: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->right[node_order]->absolutedY1 = map->buttom[0]->absolutedY1 - (step_width*(map->right.size()-node_order+1));                                                    ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:161:75: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->buttom[i]->absolutedX1 = map->buttom[0]->absolutedX1 - (step_width*(map->right.size()-node_order+1));                                            ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:170:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row++,col,3,map->buttom.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:182:35: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->left.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:195:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col--,0,map->left.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:202:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            map->right[node_order]->absolutedY1 = map->buttom[0]->absolutedY1 - (step_width*(map->right.size()-node_order+1));                                                ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:207:34: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->top.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:220:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row++,col,1,map->left.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:228:82: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->buttom[node_order]->absolutedX1 = map->left[0]->absolutedX2 + (step_width*(map->buttom.size()-node_order+1));                                                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:231:71: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->left[i]->absolutedY1 = map->left[0]->absolutedY1 - (step_width*(map->buttom.size()-node_order+1));                                          ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:239:80: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col--,1,map->left.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:245:78: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            map->buttom[node_order]->absolutedX1 = map->left[0]->absolutedX2 + (step_width*(map->buttom.size()-node_order+1));                                                 ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:251:34: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->top.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:264:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row--,col,1,map->top.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:276:36: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->right.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:289:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col++,1,map->top.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:298:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->left[node_order]->absolutedY1 = map->top[0]->absolutedY2 + (step_width*(map->left.size()-node_order+1));                                                   ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:299:69: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                map->top[i]->absolutedX1 = map->top[0]->absolutedX2 + (step_width*(map->left.size()-node_order+1));                                         ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:308:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row--,col,1,map->top.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:320:36: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->right.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:333:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row,col++,1,map->top.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:340:75: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            map->left[node_order]->absolutedY1 = map->top[0]->absolutedY2 + (step_width*(map->left.size()-node_order+1));                                               ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:345:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=map->buttom.size()-1;i<=1;i++){                ~ ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp:358:79: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]                        find_path_destination(map1,row++,col,1,map->top.size()-i,side_length,row_col_start);                        ~~~~~~~~~~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~^~32 warnings generated.-0#0#1#-19%DVTDocumentLocation2@95"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp0000000000000000^3808"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o AlgorithmProject/mapping.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o36"C35D91F1-9D74-4D27-8844-705629A541E1-
+bC2BB5A1E-908F-409E-8FAD-03887CECA8F3
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424162173.458445
+e424162174.309806
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp:164:15: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+o    label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);
+o    ~~~~~~~~~ ^~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp:164:33: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+o    label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);
+o    ~~~~~~~~~                   ^~~~~~~~~~~~~~~~
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp234"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o AlgorithmProject/readFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler6a85757d3348b941^2bdf537e3348b941^-657"/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp:164:15: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]    label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);    ~~~~~~~~~ ^~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp:164:33: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]    label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);    ~~~~~~~~~                   ^~~~~~~~~~~~~~~~2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-424162174#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#14#163#14#5323#0#22"Value Conversion Issue2(3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#14#163#31#5323#16#3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#4#163#13#5313#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-424162174#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#32#163#32#5341#0#22"Value Conversion Issue2(3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#32#163#48#5341#15#3@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^163#4#163#13#5313#0#-0#0#1#-19%DVTDocumentLocation4@96"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp0000000000000000^3814"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o AlgorithmProject/readFile.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o36"8F9E0C3B-B614-43F8-B8BB-9FC9AC8ED7E9-
+b365C518D-5E0D-4A42-A251-6056EC464EBF
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160328.862153
+e424160330.264418
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp240"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o AlgorithmProject/routing_map.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler2dd2dc482c48b941^7db1434a2c48b941^---0#0#1#-19%DVTDocumentLocation2@99"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp0000000000000000^3832"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o AlgorithmProject/routing_map.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o36"74771EF6-64D9-461D-9D3F-D13D46E5781B-
+bC2BB5A1E-908F-409E-8FAD-03887CECA8F3
+
+CCompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s424160391.401916
+e424160392.369520
+r1
+xCompileC
+xDerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:43:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=(input->top.size()-1);i>=0;i--)    //逆時針旋轉
+o                ~  ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:47:38: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        for(int i=(input->left.size()-1);i>=0;i--)
+o                ~  ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:55:22: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o            int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();
+o                ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:61:22: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o            int it = find (right_ref.begin(),right_ref.end(),input->buttom[i]->id) - right_ref.begin();
+o                ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:73:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=(input->left.size()-1);i>=0;i--)    //逆時針旋轉
+o                    ~  ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:77:44: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=(input->buttom.size()-1);i>=0;i--)
+o                    ~  ~~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:81:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=(input->right.size()-1);i>=0;i--)
+o                    ~  ~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:87:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o                int it = find (top_ref.begin(),top_ref.end(),input->top[i]->id) - top_ref.begin();
+o                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:97:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->top.size()-1;i>=0;i--)    //逆時針旋轉
+o                    ~ ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:101:41: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->left.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:105:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->buttom.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:111:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o                int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();
+o                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:121:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->right.size()-1;i>=0;i--)    //逆時針旋轉
+o                    ~ ~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:125:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->top.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:129:41: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->left.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:135:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o                int it = find (buttom_ref.begin(),buttom_ref.end(),input->buttom[i]->id) - buttom_ref.begin();
+o                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:144:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->buttom.size()-1;i>=0;i--)    //逆時針旋轉
+o                    ~ ~~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:148:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->right.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:152:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o            for(int i=input->top.size()-1;i>=0;i--)
+o                    ~ ~~~~~~~~~~~~~~~~~^~
+o/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:158:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]
+o                int it = find (left_ref.begin(),left_ref.end(),input->left[i]->id) - left_ref.begin();
+o                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o20 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp244"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o AlgorithmProject/solve_boxnode.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler0b0a67872c48b941^f2975e882c48b941^-6994"/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:43:37: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=(input->top.size()-1);i>=0;i--)    //逆時針旋轉                ~  ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:47:38: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        for(int i=(input->left.size()-1);i>=0;i--)                ~  ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:55:22: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]            int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();                ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:61:22: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]            int it = find (right_ref.begin(),right_ref.end(),input->buttom[i]->id) - right_ref.begin();                ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:73:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=(input->left.size()-1);i>=0;i--)    //逆時針旋轉                    ~  ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:77:44: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=(input->buttom.size()-1);i>=0;i--)                    ~  ~~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:81:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=(input->right.size()-1);i>=0;i--)                    ~  ~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:87:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]                int it = find (top_ref.begin(),top_ref.end(),input->top[i]->id) - top_ref.begin();                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:97:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->top.size()-1;i>=0;i--)    //逆時針旋轉                    ~ ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:101:41: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->left.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:105:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->buttom.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:111:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]                int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:121:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->right.size()-1;i>=0;i--)    //逆時針旋轉                    ~ ~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:125:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->top.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:129:41: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->left.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:135:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]                int it = find (buttom_ref.begin(),buttom_ref.end(),input->buttom[i]->id) - buttom_ref.begin();                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:144:43: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->buttom.size()-1;i>=0;i--)    //逆時針旋轉                    ~ ~~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:148:42: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->right.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:152:40: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]            for(int i=input->top.size()-1;i>=0;i--)                    ~ ~~~~~~~~~~~~~~~~~^~/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp:158:26: warning: implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int' [-Wshorten-64-to-32]                int it = find (left_ref.begin(),left_ref.end(),input->left[i]->id) - left_ref.begin();                    ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~20(36%IDEClangDiagnosticActivityLogMessage2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^42#36#42#36#1004#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^42#19#42#38#987#18#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^42#16#42#17#984#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^46#37#46#37#1148#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^46#19#46#39#1130#19#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^46#16#46#17#1127#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^54#21#54#21#1364#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^54#21#54#101#1364#79#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^54#16#54#18#1359#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^60#21#60#21#1650#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^60#21#60#102#1650#80#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^60#16#60#18#1645#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^72#41#72#41#2144#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^72#23#72#43#2126#19#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^72#20#72#21#2123#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^76#43#76#43#2305#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^76#23#76#45#2285#21#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^76#20#76#21#2282#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^80#42#80#42#2446#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^80#23#80#44#2427#20#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^80#20#80#21#2424#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^86#25#86#25#2632#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^86#25#86#97#2632#71#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^86#20#86#22#2627#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^96#39#96#39#3037#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^96#22#96#41#3020#18#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^96#20#96#21#3018#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^100#40#100#40#3195#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^100#22#100#42#3177#19#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^100#20#100#21#3175#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^104#42#104#42#3335#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^104#22#104#44#3315#21#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^104#20#104#21#3313#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^110#25#110#25#3525#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^110#25#110#105#3525#79#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^110#20#110#22#3520#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^120#41#120#41#3952#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^120#22#120#43#3933#20#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^120#20#120#21#3931#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^124#39#124#39#4112#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^124#22#124#41#4095#18#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^124#20#124#21#4093#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^128#40#128#40#4250#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^128#22#128#42#4232#19#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^128#20#128#21#4230#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^134#25#134#25#4440#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^134#25#134#109#4440#83#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^134#20#134#22#4435#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^143#42#143#42#4858#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^143#22#143#44#4838#21#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^143#20#143#21#4836#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^147#41#147#41#5019#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^147#22#147#43#5000#20#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^147#20#147#21#4998#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^151#39#151#39#5156#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^151#22#151#41#5139#18#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^151#20#151#21#5137#0#-2@113"Implicit conversion loses integer precision: 'typename __wrap_iter<int *>::difference_type' (aka 'long') to 'int'-424160392#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^157#25#157#25#5341#0#22"Value Conversion Issue2(3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^157#25#157#101#5341#75#3@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^157#20#157#22#5336#0#-0#0#1#-19%DVTDocumentLocation4@101"file:///Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp0000000000000000^3844"CompileC DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o AlgorithmProject/solve_boxnode.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-generated-files.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-own-target-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-all-target-headers.hmap -iquote /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/AlgorithmProject-project-headers.hmap -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources/x86_64 -I/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/DerivedSources -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -MMD -MT dependencies -MF /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.d --serialize-diagnostics /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.dia -c /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.cpp -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o36"7930416A-68FF-46A2-AE56-7FCE23885C71-
+bC1471276-E632-4FB8-BBBD-C6A08612076F
+
+CLd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject normal x86_64
+s424162174.311341
+e424162174.344898
+r1
+xLd
+x/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject
+xnormal
+xx86_64
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/AlgorithmProject.LinkFileList
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/mapping.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/readFile.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/MPSC.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/routing_map.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/main.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/solve_boxnode.o
+d/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/bump_node.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_stats.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection131"Link /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject83"Ld DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject normal x86_6498c24f7e3348b941^944a587e3348b941^---0#0#1#--1286"Ld DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject normal x86_64    cd /Users/JJLee/Documents/developer/algorithm/AlgorithmProject    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -F/Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug -filelist /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/AlgorithmProject.LinkFileList -mmacosx-version-min=10.9 -stdlib=libc++ -Xlinker -dependency_info -Xlinker /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Intermediates/AlgorithmProject.build/Debug/AlgorithmProject.build/Objects-normal/x86_64/AlgorithmProject_dependency_info.dat -o /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/DerivedData/AlgorithmProject/Build/Products/Debug/AlgorithmProject36"74834BAF-13E0-4959-A3AB-8F3136E3D3F7-
+b365C518D-5E0D-4A42-A251-6056EC464EBF
+
