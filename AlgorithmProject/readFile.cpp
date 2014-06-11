@@ -15,11 +15,6 @@ bool smaller_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.abs
 bool greater_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
 bool greater_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
 bool smaller_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
-bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2)?i:j;}
-bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2)?i:j;}
-bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2)?i:j;}
-bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2)?i:j;}
-
 
 ReadFile::ReadFile()
 {
@@ -90,7 +85,7 @@ void ReadFile::alignment(int bumpNum)
     
     //if indicator id true:
     for( int j = n-1 ; j > 0; j--){
-    	int m = max(bump_dup.begin(), bump_dup.end(), max_absolutedY2);
+    	int m = MaxY2(bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteY2 == m){
             	bvec[j].push_back(bump_dup[i]);
@@ -101,7 +96,7 @@ void ReadFile::alignment(int bumpNum)
         sort(bvec[j].begin(), bvec[j].end(), smaller_absoluteX1);
         int q = bvec[j].size();
         // end of reading the upper edge of bump square 
-        m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
+        m = MaxX2(bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteX2 == m){
             	bvec[j].push_back(bump_dup[i]);  
@@ -111,7 +106,7 @@ void ReadFile::alignment(int bumpNum)
         sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteY1);
         q = bvec[j].size();
 	 //end of mapping the right edge 
-        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedY2);
+        m = MinY1(bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteY1 == m){
                 bvec[j].push_back(bump_dup[i]); 
@@ -121,7 +116,7 @@ void ReadFile::alignment(int bumpNum)
          sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteX1);
          q = bvec[j].size();
   	  // end of mapping the lower edge
-         m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
+         m = MinX1(bump_dup);
          for(int i = 0; i < bump_dup.size(); i++){
              if(bump_dup[i].absoluteX1 == m){
                 bvec[j].push_back(bump_dup[i]);  
@@ -131,6 +126,36 @@ void ReadFile::alignment(int bumpNum)
 	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absoluteY1);
 	 //end of mapping the left edge
     } //run LCS algorithms with all bvec
+}
+int MaxY2(vector<BumpNode>bump_dup){
+	int max = bump_dup[0].absolutedY2;
+	for(int i =0; i < bump_dup.size(), i++){
+		if(bump_dupp[i].absolutedY2 > max)
+		max = bump_dup[i].absolutedY2;
+		return max;
+	}
+int MaxX2(vector<BumpNode>bump_dup){
+	int max = bump_dup[0].absolutedX2;
+	for(int i =0; i < bump_dup.size(), i++){
+		if(bump_dupp[i].absolutedX2 > max)
+		max = bump_dup[i].absolutedX2;
+		return max;
+	}
+int MinY1(vector<BumpNode>bump_dup){
+	int min = bump_dup[0].absolutedY1;
+	for(int i =0; i < bump_dup.size(), i++){
+		if(bump_dupp[i].absolutedY1 < min)
+		min = bump_dup[i].absolutedY1;
+		return min;
+	}
+int MinX1(vector<BumpNode>bump_dup){
+	int max = bump_dup[0].absolutedX1;
+	for(int i =0; i < bump_dup.size(), i++){
+		if(bump_dupp[i].absolutedX1 < min)
+		min = bump_dup[i].absolutedX1;
+		return min;
+	}
+	
 }
 void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
     //lcs_bump dpary[num_driver][n];//DP table
