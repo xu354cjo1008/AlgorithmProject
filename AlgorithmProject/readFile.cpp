@@ -127,28 +127,28 @@ void ReadFile::alignment(int bumpNum)
 	 //end of mapping the left edge
     } //run LCS algorithms with all bvec
 }
-int MaxY2(vector<BumpNode>bump_dup){
+int MaxY2(vector<BumpNode>*bump_dup){
 	int max = bump_dup[0].absolutedY2;
 	for(int i =0; i < bump_dup.size(), i++){
 		if(bump_dupp[i].absolutedY2 > max)
 		max = bump_dup[i].absolutedY2;
 		return max;
 	}
-int MaxX2(vector<BumpNode>bump_dup){
+int MaxX2(vector<BumpNode>*bump_dup){
 	int max = bump_dup[0].absolutedX2;
 	for(int i =0; i < bump_dup.size(), i++){
 		if(bump_dupp[i].absolutedX2 > max)
 		max = bump_dup[i].absolutedX2;
 		return max;
 	}
-int MinY1(vector<BumpNode>bump_dup){
+int MinY1(vector<BumpNode>*bump_dup){
 	int min = bump_dup[0].absolutedY1;
 	for(int i =0; i < bump_dup.size(), i++){
 		if(bump_dupp[i].absolutedY1 < min)
 		min = bump_dup[i].absolutedY1;
 		return min;
 	}
-int MinX1(vector<BumpNode>bump_dup){
+int MinX1(vector<BumpNode>*bump_dup){
 	int max = bump_dup[0].absolutedX1;
 	for(int i =0; i < bump_dup.size(), i++){
 		if(bump_dupp[i].absolutedX1 < min)
