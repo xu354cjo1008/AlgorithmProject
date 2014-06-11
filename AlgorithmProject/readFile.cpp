@@ -10,10 +10,16 @@
 #include <fstream>
 #include <math.h>
 #include <algorithm>
-bool smaller_absoluteX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.absolutedX1); }
-bool greater_absoluteY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
-bool greater_absoluteX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
-bool smaller_absoluteY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
+//for alignment
+bool smaller_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 < j.absolutedX1); }
+bool greater_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 > j.absolutedY1); }
+bool greater_absolutedX1 (BumpNode i,BumpNode j) { return (i.absolutedX1 > j.absolutedX1); }
+bool smaller_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.absolutedY1); }
+bool max_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 < j.absolutedY2)?i:j;}
+bool max_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 < j.absolutedX2)?i:j;}
+bool min_absolutedY2(BumpNode i, BumpNode j) {return(i.absolutedY2 > j.absolutedY2)?i:j;}
+bool min_absolutedX2(BumpNode i, BumpNode j) {return(i.absolutedX2 > j.absolutedX2)?i:j;}
+
 
 ReadFile::ReadFile()
 {
@@ -84,7 +90,7 @@ void ReadFile::alignment(int bumpNum)
     
     //if indicator id true:
     for( int j = n-1 ; j > 0; j--){
-    	int m = max(bump_dup.absoluteY2);
+    	int m = max(bump_dup.begin(), bump_dup.end(), max_absolutedY2);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteY2 == m){
             	bvec[j].push_back(bump_dup[i]);
@@ -95,31 +101,31 @@ void ReadFile::alignment(int bumpNum)
         sort(bvec[j].begin(), bvec[j].end(), smaller_absoluteX1);
         int q = bvec[j].size();
         // end of reading the upper edge of bump square 
-        m = max(bump_dup.absoluteX2);
+        m = max(bump_dup.begin(), bump_dup.end(), max_absolutedX2);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteX2 == m){
-            	bvec[j].push_back() = bump_dup[i]
-                bump_dup.erase(bump_dup[i])
+            	bvec[j].push_back(bump_dup[i]);  
+                bump_dup.erase(bump_dup[i].begin() + i);
             }
         }
         sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteY1);
         q = bvec[j].size();
 	 //end of mapping the right edge 
-        m = min(bump_dup.absoluteY1);
+        m = min(bump_dup.begin(), bump_dup.end(), min_absolutedY2);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absoluteY1 == m){
-                bvec[j].push_back() = bump_dup[i]
-                bump_dup.erase(bump_dup[i])
+                bvec[j].push_back(bump_dup[i]); 
+                bump_dup.erase(bump_dup[i].begin() + i);
             }
          }
          sort(bvec[j].begin() + q, bvec[j].end(), greater_absoluteX1);
          q = bvec[j].size();
   	  // end of mapping the lower edge
-         m = min(bump_dup.absoluteX1);
+         m = min(bump_dup.begin(), bump_dup.end(), min_absolutedX2);
          for(int i = 0; i < bump_dup.size(); i++){
              if(bump_dup[i].absoluteX1 == m){
-                bvec[j].push_back() = bump_dup[i]
-                bump_dup.erase(bump_dup[i])
+                bvec[j].push_back(bump_dup[i]);  
+                bump_dup.erase(bump_dup[i].begin() + i);
               }   
           }
 	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absoluteY1);
