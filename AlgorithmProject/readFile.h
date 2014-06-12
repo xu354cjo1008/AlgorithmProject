@@ -36,7 +36,7 @@ class ReadFile
 public:
     ReadFile();
     ~ReadFile();
-    void LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n);
+    void LCS(vector<DriverNode> *driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n);
     void alignment(int bumpNum);
     vector<BumpNode> *bvec; //create n vectors to store rings
     vector<DriverNode> driver;

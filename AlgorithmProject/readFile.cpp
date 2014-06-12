@@ -80,11 +80,11 @@ void ReadFile::alignment(int bumpNum)
 
     int n = sqrt(bumpNum) / 2;
     numBvec = n;
-    bvec = new vector<BumpNode>[n-1]; //create n vectors to store rings
+    bvec = new vector<BumpNode>[n]; //create n vectors to store rings
     
     
     //if indicator id true:
-    for( int j = n-1 ; j > 0; j--){
+    for( int j = n-1 ; j >= 0; j--){
     	int m = MaxY2(&bump_dup);
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedY2 == m){
@@ -159,7 +159,7 @@ int MinX1(vector<BumpNode>*bump_dup){
 	}
     return min;
 }
-void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
+void ReadFile::LCS(vector<DriverNode> *driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
     //lcs_bump dpary[num_driver][n];//DP table
     dpary = new lcs_bump*[num_driver];
     for (int i = 0; i < num_driver; ++i) {
@@ -170,9 +170,9 @@ void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int
     for(int i = 0; i <= n; i++)
         dpary[0][i].cs = 0;
     
-    for(int i = 1; i <= num_driver; i++){
-        for(int j = 1; j <= n; j++){
-            if(driver_vec[i].did == *(*bump_vec)[j].wireId)
+    for(int i = 1; i < num_driver; i++){
+        for(int j = 1; j < n; j++){
+            if((*driver_vec)[i].did == *(*bump_vec)[j].wireId)
             {
                 dpary[i][j].cs = dpary[i-1][j-1].cs + 1;
                 dpary[i][j].prev = &dpary[i-1][j-1].cs;
@@ -194,7 +194,7 @@ void ReadFile::LCS(vector<DriverNode> driver_vec, vector<BumpNode>*bump_vec, int
             }
         }
     }
-    label_LCS(driver_vec.size(),bump_vec->size(), bump_vec);
+    label_LCS(driver_vec->size()-1,bump_vec->size()-1, bump_vec);
 //    if( driver_vec.size() == 0 || bump_vec.size() == 0)
 //        return;
 //    if(dpary[i][j].prev == *dpary[i-1][j-1].cs)

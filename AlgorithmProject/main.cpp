@@ -19,7 +19,7 @@ int main(int argc, const char * argv[])
 //    for (int i= 1; i <=9 ; ++i) {
 //        d[i] = i;
 //    }
-      vector<BumpNode*>previousSeq, currentSeq;
+//      vector<BumpNode*>previousSeq, currentSeq;
 //    BumpNode *node1 = new BumpNode(1, &d[1], DirectRoute, false);
 //    previousSeq.push_back(node1);
 //    BumpNode *node2 = new BumpNode(2, &d[4], DirectRoute, false);
@@ -78,7 +78,7 @@ int main(int argc, const char * argv[])
 //    node3->relativeX = 2;
 //    node3->relativeY = 2;
 //    
-      RoutingMap *routingMap = new RoutingMap(4,4);
+//      RoutingMap *routingMap = new RoutingMap(4,4);
 //
 //    routingMap->nodeInserttoMap(1, 1, node8);
 //    routingMap->nodeInserttoMap(1, 2, node4);
@@ -98,10 +98,13 @@ int main(int argc, const char * argv[])
 //    routingMap->nodeInserttoMap(4, 4, node15);
 
 //read file
+    vector<BumpNode*>previousSeq,currentSeq;
     ReadFile *readFile = new ReadFile();
+    RoutingMap *routingMap = new RoutingMap(2*(readFile->numBvec-1)+1,2*(readFile->numBvec-1)+1);
     int k = 0;
     while (k < readFile->numBvec) {
-        readFile->LCS(readFile->driver, &readFile->bvec[0], readFile->driver.size(), readFile->bvec[k].size());
+        int aaaaa = readFile->bvec[k].size();
+        readFile->LCS(&readFile->driver, &readFile->bvec[k], readFile->driver.size(), readFile->bvec[k].size());
         for (int i = 0; i < readFile->bvec[k].size(); ++i) {
             currentSeq.push_back(&readFile->bvec[k][i]);
         }
@@ -118,18 +121,22 @@ int main(int argc, const char * argv[])
             }
         }
         printf("\n");
+        routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
         if ( k > 0) {
             MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
             mpsc->compute();
             delete mpsc;
-            routingMap->initMapinLayer(readFile->numBvec - k - 1, readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
+            routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
             
             mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
             maping->mapping_incircle(routingMap->map);
             //  maping->mapping_outcircle(routingMap->map);
             maping->route_output(routingMap->map);
+            
+            previousSeq = currentSeq;
+            currentSeq.clear();
         }
-        k--;
+        k++;
     }
     
 ////  algorithm /////////////////////////////////////////
