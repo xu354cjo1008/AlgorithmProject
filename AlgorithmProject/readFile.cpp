@@ -62,7 +62,7 @@ ReadFile::ReadFile()
     
     while(infile >> id >> left >> bottom >> right >> top){
         BumpNode *input_b = new BumpNode(0, 0, UnDirectRoute, false);
-        input_b->wireId = &driver[id].did;
+        input_b->wireId = &driver[id-1].did;
         input_b->absolutedX1 = left;
         input_b->absolutedY1 = bottom;
         input_b->absolutedX2 = right;
@@ -89,10 +89,12 @@ void ReadFile::alignment(int bumpNum)
         for(int i = 0; i < bump_dup.size(); i++){
             if(bump_dup[i].absolutedY2 == m){
             	bvec[j].push_back(bump_dup[i]);
-            	bump_dup.erase(bump_dup.begin() + i);	
+            	bump_dup.erase(bump_dup.begin() + i);
+                i--;
             }
             
         }
+        vector<BumpNode>*aaaa = &bvec[j];
         sort(bvec[j].begin(), bvec[j].end(), smaller_absolutedX1);
         int q = bvec[j].size();
         // end of reading the upper edge of bump square 
@@ -101,6 +103,7 @@ void ReadFile::alignment(int bumpNum)
             if(bump_dup[i].absolutedX2 == m){
             	bvec[j].push_back(bump_dup[i]);  
                 bump_dup.erase(bump_dup.begin() + i);
+                i--;
             }
         }
         sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedY1);
@@ -111,6 +114,7 @@ void ReadFile::alignment(int bumpNum)
             if(bump_dup[i].absolutedY1 == m){
                 bvec[j].push_back(bump_dup[i]); 
                 bump_dup.erase(bump_dup.begin() + i);
+                i--;
             }
          }
          sort(bvec[j].begin() + q, bvec[j].end(), greater_absolutedX1);
@@ -121,7 +125,8 @@ void ReadFile::alignment(int bumpNum)
              if(bump_dup[i].absolutedX1 == m){
                 bvec[j].push_back(bump_dup[i]);  
                 bump_dup.erase(bump_dup.begin() + i);
-              }   
+                 i--;
+              }
           }
 	 sort(bvec[j].begin() + q, bvec[j].end(), smaller_absolutedY1);
 	 //end of mapping the left edge
@@ -161,18 +166,18 @@ int MinX1(vector<BumpNode>*bump_dup){
 }
 void ReadFile::LCS(vector<DriverNode> *driver_vec, vector<BumpNode>*bump_vec, int num_driver, int n){
     //lcs_bump dpary[num_driver][n];//DP table
-    dpary = new lcs_bump*[num_driver];
-    for (int i = 0; i < num_driver; ++i) {
-        dpary[i] = new lcs_bump[n];
+    dpary = new lcs_bump*[num_driver+1];
+    for (int i = 0; i < num_driver+1; ++i) {
+        dpary[i] = new lcs_bump[n+1];
     }
-    for(int i = 0; i < num_driver; i++)
+    for(int i = 0; i <= num_driver; i++)
         dpary[i][0].cs = 0;
     for(int i = 0; i <= n; i++)
         dpary[0][i].cs = 0;
     
-    for(int i = 1; i < num_driver; i++){
-        for(int j = 1; j < n; j++){
-            if((*driver_vec)[i].did == *(*bump_vec)[j].wireId)
+    for(int i = 1; i <= num_driver; i++){
+        for(int j = 1; j <= n; j++){
+            if((*driver_vec)[i-1].did == *(*bump_vec)[j-1].wireId)
             {
                 dpary[i][j].cs = dpary[i-1][j-1].cs + 1;
                 dpary[i][j].prev = &dpary[i-1][j-1].cs;
@@ -194,7 +199,7 @@ void ReadFile::LCS(vector<DriverNode> *driver_vec, vector<BumpNode>*bump_vec, in
             }
         }
     }
-    label_LCS(driver_vec->size()-1,bump_vec->size()-1, bump_vec);
+    label_LCS(driver_vec->size(),bump_vec->size(), bump_vec);
 //    if( driver_vec.size() == 0 || bump_vec.size() == 0)
 //        return;
 //    if(dpary[i][j].prev == *dpary[i-1][j-1].cs)
@@ -213,18 +218,20 @@ void ReadFile::LCS(vector<DriverNode> *driver_vec, vector<BumpNode>*bump_vec, in
 
 void ReadFile::label_LCS(int i, int j, vector<BumpNode>*bump_vec)
 {
-    if(i == 0 || j == 0)
+    if(i < 0 || j < 0)
+        return;
+    if(i == 0 && j == 0)
         return;
     if(dpary[i][j].prev == &dpary[i-1][j-1].cs){
         label_LCS(i-1,j-1,bump_vec);
-        (*bump_vec)[j].lcsType = DirectRoute;
+        (*bump_vec)[j-1].lcsType = DirectRoute;
     }else if(dpary[i][j].prev == &dpary[i-1][j].cs)
         label_LCS(i-1,j, bump_vec);
     else if(dpary[i][j].prev == &dpary[i][j-1].cs)
         label_LCS(i,j-1, bump_vec);
-	for(int u = 0; u < j; u++){
-		if((*bump_vec)[u].lcsType != DirectRoute)
-			(*bump_vec)[u].lcsType = UnDirectRoute;
-	}
+//	for(int u = 0; u < j; u++){
+//		if((*bump_vec)[u].lcsType != DirectRoute)
+//			(*bump_vec)[u].lcsType = UnDirectRoute;
+//	}
 }
 

@@ -47,6 +47,7 @@ public:
     
     BumpNode *route_next;
     BumpNode *nextNode;
+    BumpNode *previousNode;
     Direction nextDirection;
 
 private:

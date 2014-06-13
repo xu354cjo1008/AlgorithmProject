@@ -98,13 +98,13 @@ int main(int argc, const char * argv[])
 //    routingMap->nodeInserttoMap(4, 4, node15);
 
 //read file
-    vector<BumpNode*>previousSeq,currentSeq;
+    vector<BumpNode*>previousSeq;
     ReadFile *readFile = new ReadFile();
     RoutingMap *routingMap = new RoutingMap(2*(readFile->numBvec-1)+1,2*(readFile->numBvec-1)+1);
     int k = 0;
     while (k < readFile->numBvec) {
-        int aaaaa = readFile->bvec[k].size();
         readFile->LCS(&readFile->driver, &readFile->bvec[k], readFile->driver.size(), readFile->bvec[k].size());
+        vector<BumpNode*>currentSeq;
         for (int i = 0; i < readFile->bvec[k].size(); ++i) {
             currentSeq.push_back(&readFile->bvec[k][i]);
         }
@@ -121,21 +121,51 @@ int main(int argc, const char * argv[])
             }
         }
         printf("\n");
-        routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-        if ( k > 0) {
-            MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
-            mpsc->compute();
-            delete mpsc;
-            routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-            
-            mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
-            maping->mapping_incircle(routingMap->map);
-            //  maping->mapping_outcircle(routingMap->map);
-            maping->route_output(routingMap->map);
-            
-            previousSeq = currentSeq;
-            currentSeq.clear();
+        MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
+        mpsc->compute();
+        delete mpsc;
+        printf("MPSC Sequence result : ");
+        for (int i = 0; i < currentSeq.size(); ++i) {
+            if (currentSeq[i]->wireId) {
+                if (currentSeq[i]->isVirtual) {
+                    printf("%d' ", *currentSeq[i]->wireId);
+                } else {
+                    printf("%d ", *currentSeq[i]->wireId);
+                }
+            } else {
+                printf("x ");
+            }
         }
+        printf("\n");
+        
+        routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
+        printf("before mapping\n");
+        routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+
+        routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+        printf("after mapping\n");
+
+        routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+        
+     //   routingMap->printBox(1, 1);
+     //   routingMap->printBox(1, 2);
+        //routingMap->printBox(1, 3);
+        // routingMap->printBox(0, 3);
+     //   routingMap->printBox(2, 1);
+     //   routingMap->printBox(2, 2);
+        //routingMap->printBox(2, 3);
+        // routingMap->printBox(1, 3);
+       // routingMap->printBox(3, 1);
+       // routingMap->printBox(3, 2);
+        //routingMap->printBox(3, 3);
+        
+        //       mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
+        //       maping->mapping_incircle(routingMap->map);
+        //  maping->mapping_outcircle(routingMap->map);
+        //      maping->route_output(routingMap->map);
+        
+        previousSeq = currentSeq;
+
         k++;
     }
     
@@ -146,34 +176,34 @@ int main(int argc, const char * argv[])
 //    routingMap->initMapinLayer(0, 2, 2, previousSeq);
 //    routingMap->initMapinLayer(1, 1, 1, currentSeq);
 //// print the result//////////////////////////////////
-    printf("current Sequence : ");
-    for (int i = 0; i < currentSeq.size(); ++i) {
-        if (currentSeq[i]->wireId) {
-            if (currentSeq[i]->isVirtual) {
-                printf("%d' ", *currentSeq[i]->wireId);
-            } else {
-                printf("%d ", *currentSeq[i]->wireId);
-            }
-        } else {
-            printf("x ");
-        }
-    }
-    printf("\n");
-    printf("previous Sequence : ");
-    for (int i = 0; i < previousSeq.size(); ++i) {
-        if (previousSeq[i]->wireId) {
-            if (previousSeq[i]->isVirtual) {
-                printf("%d' ", *previousSeq[i]->wireId);
-            } else {
-                printf("%d ", *previousSeq[i]->wireId);
-            }
-        } else {
-            printf("x ");
-        }
-    }
-    printf("\n");
+//    printf("current Sequence : ");
+//    for (int i = 0; i < currentSeq.size(); ++i) {
+//        if (currentSeq[i]->wireId) {
+//            if (currentSeq[i]->isVirtual) {
+//                printf("%d' ", *currentSeq[i]->wireId);
+//            } else {
+//                printf("%d ", *currentSeq[i]->wireId);
+//            }
+//        } else {
+//            printf("x ");
+//        }
+//    }
+//    printf("\n");
+//    printf("previous Sequence : ");
+//    for (int i = 0; i < previousSeq.size(); ++i) {
+//        if (previousSeq[i]->wireId) {
+//            if (previousSeq[i]->isVirtual) {
+//                printf("%d' ", *previousSeq[i]->wireId);
+//            } else {
+//                printf("%d ", *previousSeq[i]->wireId);
+//            }
+//        } else {
+//            printf("x ");
+//        }
+//    }
+//    printf("\n");
     
-    routingMap->ringMaping(1, 1, 1);
+    //routingMap->ringMaping(1, 1, 1);
     routingMap->printBox(1, 1);
     routingMap->printBox(1, 2);
     routingMap->printBox(1, 3);

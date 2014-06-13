@@ -246,6 +246,9 @@ void RoutingMap::initMapinLayer(int layer, int layerRowNum, int layerColNum, vec
     int row = 0;
     int col = 0;
     edges side = topSide;
+    
+    edges tmpSide = topSide;
+    int x = 0;
     for (int i = 0; i < currentSeq.size(); ++i) {
         if (!currentSeq[i]->isVirtual) {
             if (mapPointer == -1) {
@@ -253,6 +256,28 @@ void RoutingMap::initMapinLayer(int layer, int layerRowNum, int layerColNum, vec
             }
             mapPointer ++;
             seqtoMap(layer, layerRowNum, layerColNum, mapPointer, &row, &col, &side);
+            if (tmpSide != side) {
+                x++;
+            }
+            tmpSide = side;
+
+            switch (x) {
+                case 0:
+                    nodeInserttoMap(row, col, currentSeq[i]);
+                    break;
+                case 1:
+                    nodeInserttoMap(row, col + 1, currentSeq[i]);
+                    break;
+                case 2:
+                    nodeInserttoMap(row + 1, col + 1, currentSeq[i]);
+                    break;
+                case 3:
+                    nodeInserttoMap(row + 1 , col, currentSeq[i]);
+                    break;
+                    
+                default:
+                    break;
+            }
         } else {
             vnodeInserttoBox(row, col, side, currentSeq[i], false);
         }
@@ -261,6 +286,8 @@ void RoutingMap::initMapinLayer(int layer, int layerRowNum, int layerColNum, vec
         vnodeInserttoBox(layerRowNum, layerColNum, leftSide, currentSeq[i], false);
     }
 }
+
+
 void RoutingMap::seqtoMap(int layer, int startRowNym, int startColNum, int pointer, int *rowNum, int *colNum, edges *side)
 {
     int rowSize = 2 * layer + 1;
@@ -434,6 +461,21 @@ void RoutingMap::printBox(int layerRowNum, int layerColNum)
         }
     }
     printf("\n");
+}
+
+void RoutingMap::printBoxinLayer(int layer, int startRowNum, int startColNum)
+{
+    int p;
+    int row,col;
+    int layerBoxSize = layer * 8;
+    if (layerBoxSize <= 0) {
+        layerBoxSize = 1;
+    }
+    for (int i = 0; i < layerBoxSize; ++i) {
+       // seqtoMap(layer, startRowNum, startColNum, p + i, &row, &col, &side);
+        layertoMap(layer, startRowNum, startColNum, p + i, &row, &col);
+        printBox(row, col);
+    }
 }
 void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
 {

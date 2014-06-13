@@ -32,11 +32,12 @@ class RoutingMap
 public:
     RoutingMap(int rowNum, int colNum);              //假設bump排列為方形
     ~RoutingMap();
-    void mapInsertNode(int rowPos, int colPos, edges side, BumpNode *node);
     void nodeInserttoMap(int nodeRow, int nodeCol, BumpNode *node);
     void initMapinLayer(int layer, int layerRowNum, int layerColNum, vector<BumpNode*>currentSeq);
     void routeinLayer(int layerNum);
     void printBox(int layerRowNum, int layerColNum);
+    void printBoxinLayer(int layer, int startRowNum, int startColNum);
+
     
     void ringMaping(int layer, int startRowNum, int startColNum);
     box *map;
@@ -46,6 +47,9 @@ private:
     
     vector<BumpNode *>outCircleSequence;
     void boxMaping(int mapRow, int mapCol);
+    
+    void mapInsertNode(int rowPos, int colPos, edges side, BumpNode *node);
+
     
     void vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *node, bool toBegin);
     void eraseVnode(int rowNum, int colNum, edges side, int pointer);

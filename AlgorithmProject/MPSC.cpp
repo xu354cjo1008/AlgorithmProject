@@ -135,7 +135,7 @@ void MPSC::buildCircle()
     for (int i = 0; i < currentSequence->size(); ++i)
     {
         if ((*currentSequence)[i]->wireId) {
-            if ((*currentSequence)[i]->lcsType == UnDirectRoute)
+            if ((*currentSequence)[i]->lcsType == UnDirectRoute && !(*currentSequence)[i]->isVirtual)
             {
                 int tmp;
                 if ((*currentSequence)[0]->wireId) {
@@ -157,6 +157,7 @@ void MPSC::buildCircle()
                     (*currentSequence)[i]->nextNode = node;
                     currentSequence->insert(currentSequence->begin(), node);
                     ++i;
+                    goto xxx;
                 }
                 for (int j = 0; j < currentSequence->size() - 1; ++j)
                 {
@@ -201,6 +202,7 @@ void MPSC::buildCircle()
                         if (i >= j) {
                             ++i;
                         }
+                        goto xxx;
 
                     }
                 }
@@ -223,9 +225,12 @@ void MPSC::buildCircle()
                     BumpNode *node = new BumpNode((*currentSequence)[i]->id, (*currentSequence)[i]->wireId,(*currentSequence)[i]->lcsType,true);
                     (*currentSequence)[i]->nextNode = node;
                     currentSequence->insert(currentSequence->end(), node);
+                    goto xxx;
                 }
             }
         }
+    xxx:
+        continue;
     }
     // build virtual nodes of previous nodes and insert those to current sequence
     for (int j = 0; j < previousSequence->size(); ++j)
@@ -250,6 +255,7 @@ void MPSC::buildCircle()
                 BumpNode *node = new BumpNode((*previousSequence)[j]->id, (*previousSequence)[j]->wireId,(*previousSequence)[j]->lcsType,true);
                 (*previousSequence)[j]->nextNode = node;
                 currentSequence->insert(currentSequence->begin(), node);
+                continue;
             }
         }
     }
@@ -292,7 +298,7 @@ void MPSC::buildCircle()
                         (*previousSequence)[j]->nextNode = node;
                         currentSequence->insert(currentSequence->begin() + i + 1, node);
                         ++i;
-
+                        continue;
                     }
                 }
             }
@@ -320,6 +326,7 @@ void MPSC::buildCircle()
                 BumpNode *node = new BumpNode((*previousSequence)[j]->id, (*previousSequence)[j]->wireId,(*previousSequence)[j]->lcsType,true);
                 (*previousSequence)[j]->nextNode = node;
                 currentSequence->push_back(node);
+                continue;
             }
         }
     }
@@ -327,7 +334,16 @@ void MPSC::buildCircle()
     for (int i = 0; i < currentSequence->size(); ++i) {
         for (int j = i + 1; j < currentSequence->size(); ++j) {
             if ((*currentSequence)[i]->wireId && (*currentSequence)[j]->wireId) {
-                if (*(*currentSequence)[i]->wireId == *(*currentSequence)[j]->wireId) {
+                if (!(*currentSequence)[i]->isVirtual && (*currentSequence)[j]->isVirtual && *(*currentSequence)[i]->wireId == *(*currentSequence)[j]->wireId) {
+                    chord x;
+                    x.node1 = i;
+                    x.node2 = j;
+                    x.left = NULL;
+                    x.right = NULL;
+                    x.total = 1;
+                    circle.push_back(x);
+                }
+                if ((*currentSequence)[i]->isVirtual && (*currentSequence)[j]->isVirtual && *(*currentSequence)[i]->wireId == *(*currentSequence)[j]->wireId) {
                     chord x;
                     x.node1 = i;
                     x.node2 = j;
@@ -340,7 +356,7 @@ void MPSC::buildCircle()
         }
         for (int j = previousSequence->size() - 1; j >= 0; --j) {
             if ((*currentSequence)[i]->wireId && (*previousSequence)[j]->wireId) {
-                if (*(*currentSequence)[i]->wireId == *(*previousSequence)[j]->wireId) {
+                if (!(*currentSequence)[i]->nextNode && *(*currentSequence)[i]->wireId == *(*previousSequence)[j]->wireId) {
                     chord x;
                     x.node1 = i;
                     x.node2 = (*previousSequence).size() - j + (*currentSequence).size() - 1;
@@ -391,11 +407,15 @@ void MPSC::refreshSequence()
         if (outSequence[i].node2 < currentSequence->size()) {
             (*currentSequence)[outSequence[i].node1]->mpscType = inCircle;
             (*currentSequence)[outSequence[i].node2]->mpscType = inCircle;
+            printf("%d : %d\n", *(*currentSequence)[outSequence[i].node1]->wireId, *(*currentSequence)[outSequence[i].node2]->wireId);
         } else {
             (*currentSequence)[outSequence[i].node1]->mpscType = inCircle;
             (*previousSequence)[previousSequence->size() - (outSequence[i].node2 - currentSequence->size() + 1)]->mpscType = inCircle;
+            printf("%d : %d\n", *(*currentSequence)[outSequence[i].node1]->wireId, *(*previousSequence)[previousSequence->size() - (outSequence[i].node2 - currentSequence->size() + 1)]->wireId);
+
         }
     }
+
 }
 
 
