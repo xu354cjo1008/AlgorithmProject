@@ -119,255 +119,110 @@ MPSC::~MPSC()
     previousSequence = NULL;
     currentSequence = NULL;
     printf("mpsc delloc\n");
-    delete mis;
+  //  delete mis;
 }
 
 void MPSC::compute()
 {
     buildCircle();
-    buildMis();
-    refreshSequence();
+ //   buildMis();
+ //   refreshSequence();
 }
 // compute the possible routing path
 void MPSC::buildCircle()
 {
-    // build virtual nodes of undirected route nodes and insert those to current sequence
-    for (int i = 0; i < currentSequence->size(); ++i)
-    {
-        if ((*currentSequence)[i]->wireId) {
-            if ((*currentSequence)[i]->lcsType == UnDirectRoute && !(*currentSequence)[i]->isVirtual)
-            {
-                int tmp;
-                if ((*currentSequence)[0]->wireId) {
-                    tmp = *(*currentSequence)[0]->wireId;
-                } else {
-                    int k = 0;
-                    while (k < currentSequence->size() && !(*currentSequence)[k]->wireId) {
-                        ++k;
-                    }
-                    if (k < currentSequence->size()) {
-                        tmp = *(*currentSequence)[k]->wireId;
-                    } else {
-                        tmp = 2147483647;
-                    }
+    int leftPointer, rightPointer;
+    int leftBound, rightBound;
+    int currentPointer, currentPointerWireID;
+    //insert the left and right limit
+    int virLeftLimit , virRightLimit;
+    virLeftLimit = -2147483647;
+    virRightLimit = 2147483647;
+    BumpNode *virLeftLimitNode = new BumpNode(0, &virLeftLimit, DirectRoute, true);
+    BumpNode *virRightLimitNode = new BumpNode(0, &virRightLimit, DirectRoute, true);
+    currentSequence->insert(currentSequence->begin(), virLeftLimitNode);
+    currentSequence->push_back(virRightLimitNode);
+    
+    //find previous layer to current layer path
+    for (currentPointer = 0; currentPointer < previousSequence->size(); ++currentPointer) {
+        if ((*previousSequence)[currentPointer]->lcsType == DirectRoute) {
+            currentPointerWireID = *(*previousSequence)[currentPointer]->wireId;
+            for (leftPointer = 0; leftPointer < currentSequence->size(); ++leftPointer) {
+                //search left bound and right bound
+                while (leftPointer < currentSequence->size() && (*currentSequence)[leftPointer]->lcsType == UnDirectRoute) {
+                    ++leftPointer;
                 }
-                if (*(*currentSequence)[i]->wireId < tmp)
-                {
-                    BumpNode *node = new BumpNode((*currentSequence)[i]->id, (*currentSequence)[i]->wireId,(*currentSequence)[i]->lcsType,true);
-                    (*currentSequence)[i]->nextNode = node;
-                    currentSequence->insert(currentSequence->begin(), node);
-                    ++i;
-                    goto xxx;
+                leftBound = *(*currentSequence)[leftPointer]->wireId;
+                rightPointer = leftPointer;
+                ++rightPointer;
+                while (rightPointer < currentSequence->size() && (*currentSequence)[rightPointer]->lcsType == UnDirectRoute) {
+                    ++rightPointer;
                 }
-                for (int j = 0; j < currentSequence->size() - 1; ++j)
-                {
-                    int tmp0, tmp1, tmp2;
-                    if ((*currentSequence)[i]->wireId) {
-                        tmp0 = *(*currentSequence)[i]->wireId;
+                rightBound = *(*currentSequence)[rightPointer]->wireId;
+                //insert node to the right of left bound
+                if (currentPointerWireID > leftBound && currentPointerWireID < rightBound) {
+                    BumpNode *newVirNode = new BumpNode((*previousSequence)[currentPointer]);
+                    newVirNode->lcsType = DirectRoute;
+                    if (leftPointer == currentSequence->size() - 1) {
+                        currentSequence->push_back(newVirNode);
                     } else {
-                        tmp0 = -5;
+                        currentSequence->insert(currentSequence->begin() + leftPointer + 1, newVirNode);
                     }
-                    if ((*currentSequence)[j]->wireId) {
-                        tmp1 = *(*currentSequence)[j]->wireId;
+                    break;
+                }
+            }
+        }
+    }
+    
+    //find current layer to current layer
+    for (currentPointer = 1; currentPointer < currentSequence->size() - 1; ++currentPointer) {
+        if ((*currentSequence)[currentPointer]->lcsType == UnDirectRoute) {
+            currentPointerWireID = *(*currentSequence)[currentPointer]->wireId;
+            for (leftPointer = 0; leftPointer < currentSequence->size() - 1; ++leftPointer) {
+                //search left bound and right bound
+                while (leftPointer < currentSequence->size() - 2 && (*currentSequence)[leftPointer]->lcsType == UnDirectRoute) {
+                    ++leftPointer;
+                }
+                leftBound = *(*currentSequence)[leftPointer]->wireId;
+                rightPointer = leftPointer;
+                ++rightPointer;
+                while (rightPointer < currentSequence->size() - 1 && (*currentSequence)[rightPointer]->lcsType == UnDirectRoute) {
+                    ++rightPointer;
+                }
+                rightBound = *(*currentSequence)[rightPointer]->wireId;
+                //insert node to the right of left bound
+                if (currentPointerWireID > leftBound && currentPointerWireID < rightBound) {
+                    BumpNode *newVirNode = new BumpNode((*currentSequence)[currentPointer]);
+                    newVirNode->lcsType = DirectRoute;
+                    if (leftPointer == currentSequence->size() - 1) {
+                        currentSequence->push_back(newVirNode);
                     } else {
-                        int k = j;
-                        while (k >=0 && !(*currentSequence)[k]->wireId) {
-                            --k;
-                        }
-                        if (k >= 0) {
-                            tmp1 = *(*currentSequence)[k]->wireId;
-                        } else {
-                            tmp1 = -1;
+                        currentSequence->insert(currentSequence->begin() + leftPointer + 1, newVirNode);
+                        if (leftPointer < currentPointer) {
+                            ++currentPointer;
                         }
                     }
-                    if ((*currentSequence)[j+1]->wireId) {
-                        tmp2 = *(*currentSequence)[j+1]->wireId;
-                    } else {
-                        int k = j+1;
-                        while (k < currentSequence->size() && !(*currentSequence)[k]->wireId) {
-                            ++k;
-                        }
-                        if (k < currentSequence->size()) {
-                            tmp2 = *(*currentSequence)[k]->wireId;
-                        } else {
-                            tmp2 = 2147483647;
-                        }
-                    }
-                    if (tmp0 > tmp1 && tmp0 < tmp2)
-                    {
-                        BumpNode *node = new BumpNode((*currentSequence)[i]->id, (*currentSequence)[i]->wireId,(*currentSequence)[i]->lcsType,true);
-                        (*currentSequence)[i]->nextNode = node;
-                        currentSequence->insert(currentSequence->begin() + j + 1, node);
-                        ++j;
-                        if (i >= j) {
-                            ++i;
-                        }
-                        goto xxx;
+                    break;
+                }
+            }
+        }
+    }
 
-                    }
-                }
-                int tmp3 = 0;
-                if ((*currentSequence).back()->wireId) {
-                    tmp3 = *(*currentSequence).back()->wireId;
-                } else {
-                    int k = currentSequence->size() - 1;
-                    while (k >=0 && !(*currentSequence)[k]->wireId) {
-                        --k;
-                    }
-                    if (k >= 0) {
-                        tmp3 = *(*currentSequence)[k]->wireId;
-                    } else {
-                        tmp3 = -1;
-                    }
-                }
-                if ((*currentSequence)[i]->wireId && *(*currentSequence)[i]->wireId > tmp3)
-                {
-                    BumpNode *node = new BumpNode((*currentSequence)[i]->id, (*currentSequence)[i]->wireId,(*currentSequence)[i]->lcsType,true);
-                    (*currentSequence)[i]->nextNode = node;
-                    currentSequence->insert(currentSequence->end(), node);
-                    goto xxx;
-                }
-            }
-        }
-    xxx:
-        continue;
-    }
-    // build virtual nodes of previous nodes and insert those to current sequence
-    for (int j = 0; j < previousSequence->size(); ++j)
-    {
-        int tmp;
-        if ((*currentSequence)[0]->wireId) {
-            tmp = *(*currentSequence)[0]->wireId;
-        } else {
-            int k = 0;
-            while (k < currentSequence->size() && !(*currentSequence)[k]->wireId) {
-                ++k;
-            }
-            if (k < currentSequence->size()) {
-                tmp = *(*currentSequence)[k]->wireId;
-            } else {
-                tmp = 2147483647;
-            }
-        }
-        if ((*previousSequence)[j]->wireId) {
-            if (*(*previousSequence)[j]->wireId < tmp)
-            {
-                BumpNode *node = new BumpNode((*previousSequence)[j]->id, (*previousSequence)[j]->wireId,(*previousSequence)[j]->lcsType,true);
-                (*previousSequence)[j]->nextNode = node;
-                currentSequence->insert(currentSequence->begin(), node);
-                continue;
-            }
+    //delet the virtual limit node
+    currentSequence->erase(currentSequence->begin() + currentSequence->size() - 1);
+    currentSequence->erase(currentSequence->begin());
+
+}
+// search the direct routing node
+vector<BumpNode*> MPSC::serchDirectRout(vector<BumpNode*>*nodeSequence)
+{
+    vector<BumpNode*> output;
+    for (int i = 0; i < nodeSequence->size(); ++i) {
+        if ((*nodeSequence)[i]->lcsType == DirectRoute) {
+            output.push_back((*nodeSequence)[i]);
         }
     }
-    for (int i = 0; i < currentSequence->size() -1 ; ++i)
-    {
-        if ((*currentSequence)[i]->wireId) {
-            for (int j = 0; j < previousSequence->size(); ++j)
-            {
-                if ((*previousSequence)[j]->wireId) {
-                    int tmp1, tmp2;
-                    if ((*currentSequence)[i]->wireId) {
-                        tmp1 = *(*currentSequence)[i]->wireId;
-                    } else {
-                        int k = i;
-                        while (k >=0 && !(*currentSequence)[k]->wireId) {
-                            --k;
-                        }
-                        if (k >= 0) {
-                            tmp1 = *(*currentSequence)[k]->wireId;
-                        } else {
-                            tmp1 = -1;
-                        }
-                    }
-                    if ((*currentSequence)[i+1]->wireId) {
-                        tmp2 = *(*currentSequence)[i+1]->wireId;
-                    } else {
-                        int k = i + 1;
-                        while (k < currentSequence->size() && !(*currentSequence)[k]->wireId) {
-                            ++k;
-                        }
-                        if (k < currentSequence->size()) {
-                            tmp2 = *(*currentSequence)[k]->wireId;
-                        } else {
-                            tmp2 = 2147483647;
-                        }
-                    }
-                    if (*(*previousSequence)[j]->wireId > tmp1 && *(*previousSequence)[j]->wireId < tmp2)
-                    {
-                        BumpNode *node = new BumpNode((*previousSequence)[j]->id, (*previousSequence)[j]->wireId,(*previousSequence)[j]->lcsType,true);
-                        (*previousSequence)[j]->nextNode = node;
-                        currentSequence->insert(currentSequence->begin() + i + 1, node);
-                        ++i;
-                        continue;
-                    }
-                }
-            }
-        }
-    }
-    for (int j = 0; j < previousSequence->size(); ++j)
-    {
-        int tmp3 = 0;
-        if ((*currentSequence).back()->wireId) {
-            tmp3 = *(*currentSequence).back()->wireId;
-        } else {
-            int k = currentSequence->size() - 1;
-            while (k >=0 && !(*currentSequence)[k]->wireId) {
-                --k;
-            }
-            if (k >= 0) {
-                tmp3 = *(*currentSequence)[k]->wireId;
-            } else {
-                tmp3 = -1;
-            }
-        }
-        if ((*previousSequence)[j]->wireId) {
-            if (*(*previousSequence)[j]->wireId > tmp3)
-            {
-                BumpNode *node = new BumpNode((*previousSequence)[j]->id, (*previousSequence)[j]->wireId,(*previousSequence)[j]->lcsType,true);
-                (*previousSequence)[j]->nextNode = node;
-                currentSequence->push_back(node);
-                continue;
-            }
-        }
-    }
-    //build chords
-    for (int i = 0; i < currentSequence->size(); ++i) {
-        for (int j = i + 1; j < currentSequence->size(); ++j) {
-            if ((*currentSequence)[i]->wireId && (*currentSequence)[j]->wireId) {
-                if (!(*currentSequence)[i]->isVirtual && (*currentSequence)[j]->isVirtual && *(*currentSequence)[i]->wireId == *(*currentSequence)[j]->wireId) {
-                    chord x;
-                    x.node1 = i;
-                    x.node2 = j;
-                    x.left = NULL;
-                    x.right = NULL;
-                    x.total = 1;
-                    circle.push_back(x);
-                }
-                if ((*currentSequence)[i]->isVirtual && (*currentSequence)[j]->isVirtual && *(*currentSequence)[i]->wireId == *(*currentSequence)[j]->wireId) {
-                    chord x;
-                    x.node1 = i;
-                    x.node2 = j;
-                    x.left = NULL;
-                    x.right = NULL;
-                    x.total = 1;
-                    circle.push_back(x);
-                }
-            }
-        }
-        for (int j = previousSequence->size() - 1; j >= 0; --j) {
-            if ((*currentSequence)[i]->wireId && (*previousSequence)[j]->wireId) {
-                if (!(*currentSequence)[i]->nextNode && *(*currentSequence)[i]->wireId == *(*previousSequence)[j]->wireId) {
-                    chord x;
-                    x.node1 = i;
-                    x.node2 = (*previousSequence).size() - j + (*currentSequence).size() - 1;
-                    x.left = NULL;
-                    x.right = NULL;
-                    x.total = 1;
-                    circle.push_back(x);
-                }
-            }
-        }
-    }
+    return output;
 }
 void MPSC::buildMis()
 {

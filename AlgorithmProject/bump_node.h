@@ -32,6 +32,7 @@ class BumpNode
 public:
     BumpNode(int node_id, int *wire_id, LCSType LCS_type, bool is_virtual, int absoluted_X1, int absoluted_Y1, int absoluted_X2, int absoluted_Y2, int relative_X, int relative_Y);
     BumpNode(int node_id, int *wire_id, LCSType LCS_type, bool is_virtual);
+    BumpNode(BumpNode *copyFormNode);
 	~BumpNode();
 	int id;
 	int *wireId;//which driver

@@ -51,6 +51,7 @@ private:
 	vector<BumpNode*> *previousSequence;
 	vector<BumpNode*> *currentSequence;
     void buildCircle();
+    vector<BumpNode*> serchDirectRout(vector<BumpNode*>*nodeSequence);
     void buildMis();
     vector<chord> circle;
     MIS *mis;

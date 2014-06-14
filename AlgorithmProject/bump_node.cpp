@@ -30,6 +30,22 @@ BumpNode::BumpNode(int node_id, int *wire_id, LCSType LCS_type, bool is_virtual)
     mpscType = outCircle;
     isVirtual = is_virtual;
 }
+BumpNode::BumpNode(BumpNode *copyFormNode)
+{
+    id = copyFormNode->id;
+    wireId = copyFormNode->wireId;
+    lcsType = copyFormNode->lcsType;
+    mpscType = copyFormNode->mpscType;
+    isVirtual = true;
+    absolutedX1 = copyFormNode->absolutedX1;
+    absolutedY1 = copyFormNode->absolutedY1;
+    absolutedX2 = copyFormNode->absolutedX2;
+    absolutedY2 = copyFormNode->absolutedY2;
+    relativeX = copyFormNode->relativeX;
+    relativeY = copyFormNode->relativeY;
+    copyFormNode->nextNode = this;
+}
+
 
 BumpNode::~BumpNode()
 {
