@@ -46,6 +46,8 @@ public:
 private:
     
     vector<BumpNode *>outCircleSequence;
+    vector<BumpNode *>preOutCircleSequence;
+
     void boxMaping(int mapRow, int mapCol);
     
     void mapInsertNode(int rowPos, int colPos, edges side, BumpNode *node);

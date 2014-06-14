@@ -8,30 +8,20 @@
 
 #include "MPSC.h"
 
-/*
-int** ary = new int*[sizeX];
-for(int i = 0; i < sizeX; ++i)
-    ary[i] = new int[sizeY];
-
-*/
 MIS::MIS(int rowSize, int columnSize)
 {
     tRowSize = rowSize;
     tColSize = columnSize;
-//    table = new chord*[rowSize];
-//    for (int i = 0; i < rowSize; ++i)
-//    {
-//        table[i] = new chord[columnSize];
-//    }
-    
     table = new chord[tRowSize * tColSize];
+    for (int i = 0; i < tRowSize * tColSize; ++i) {
+        table[i].left = NULL;
+        table[i].right = NULL;
+        table[i].total = 0;
+
+    }
 }
 MIS::~MIS()
 {
-//    for (int i = 0; i < tRowSize; ++i)
-//    {
-//        delete [] table[i];
-//    }
     delete [] table;
     printf("mis delloc\n");
 
@@ -119,17 +109,18 @@ MPSC::~MPSC()
     previousSequence = NULL;
     currentSequence = NULL;
     printf("mpsc delloc\n");
-  //  delete mis;
+    delete mis;
 }
 
 void MPSC::compute()
 {
+    computePath();
     buildCircle();
- //   buildMis();
- //   refreshSequence();
+    buildMis();
+    refreshSequence();
 }
 // compute the possible routing path
-void MPSC::buildCircle()
+void MPSC::computePath()
 {
     int leftPointer, rightPointer;
     int leftBound, rightBound;
@@ -224,30 +215,80 @@ vector<BumpNode*> MPSC::serchDirectRout(vector<BumpNode*>*nodeSequence)
     }
     return output;
 }
+void MPSC::buildCircle()
+{
+    int leftPointer, rightPointer;
+    BumpNode *leftPointNode, *rightPointNode;
+    bool isTrace[currentSequence->size()];
+    for (int i = 0; i < currentSequence->size(); ++i) {
+        isTrace[i] = false;
+    }
+    for (leftPointer = 0; leftPointer < currentSequence->size(); ++leftPointer) {
+        leftPointNode = (*currentSequence)[leftPointer];
+        bool s = isTrace[leftPointer];
+        if ((!leftPointNode->isVirtual && leftPointNode->lcsType != UnDirectRoute) || isTrace[leftPointer] == true) {
+            continue;
+        }
+        for (rightPointer = leftPointer + 1; rightPointer < currentSequence->size(); ++rightPointer) {
+            rightPointNode = (*currentSequence)[rightPointer];
+            if (leftPointNode->wireId == rightPointNode->wireId) {
+                chord newChord;
+                newChord.node1 = leftPointer;
+                newChord.node2 = rightPointer;
+                newChord.left = NULL;
+                newChord.right = NULL;
+                newChord.total = 1;
+                circle.push_back(newChord);
+                isTrace[leftPointer] = true;
+            }
+        }
+        for (rightPointer = previousSequence->size() - 1; rightPointer >=0; --rightPointer) {
+            rightPointNode = (*previousSequence)[rightPointer];
+            if (rightPointNode->lcsType == UnDirectRoute) {
+                continue;
+            }
+            if (leftPointNode->wireId == rightPointNode->wireId) {
+                chord newChord;
+                newChord.node1 = leftPointer;
+                newChord.node2 = previousSequence->size() - 1 - rightPointer + currentSequence->size();
+                newChord.left = NULL;
+                newChord.right = NULL;
+                newChord.total = 1;
+                circle.push_back(newChord);
+                isTrace[leftPointer] = true;
+            }
+        }
+    }
+}
+
 void MPSC::buildMis()
 {
     mis = new MIS(previousSequence->size()+currentSequence->size(), previousSequence->size()+currentSequence->size());
 
     vector<chord> tmpChords;
     for (int j = 0; j < previousSequence->size() + currentSequence->size(); ++j) {
-        for (int i = 0; i < currentSequence->size(); ++i) {
+        for (int i = 0; i < circle.size(); ++i) {
             if (circle[i].node2 == j) {
                 tmpChords.push_back(circle[i]);
             }
-            if (circle[i].node1 >= j) {
-                break;
-            }
         }
         for (int i = 0; i < j; ++i) {
-            for (int k = 0; k < tmpChords.size(); ++k) {
-                if (tmpChords[k].node1 >= i && tmpChords[k].node1 <= j) {
-                    if ((mis->chordsinMIS(i, tmpChords[k].node1 - 1))->total + 1 + (mis->chordsinMIS(tmpChords[k].node1 + 1, j - 1))->total > (mis->chordsinMIS(i, j - 1))->total) {
-                        mis->putChordsInMIS(i, j, mis->chordsinMIS(i, tmpChords[k].node1 - 1), mis->chordsinMIS(tmpChords[k].node1 + 1, j - 1), &tmpChords[k]);
+            if (tmpChords.size() > 0) {
+                for (int k = 0; k < tmpChords.size(); ++k) {
+                    if (tmpChords[k].node1 >= i && tmpChords[k].node1 < j) {
+                        if ((mis->chordsinMIS(i, tmpChords[k].node1 - 1))->total + 1 + (mis->chordsinMIS(tmpChords[k].node1 + 1, j - 1))->total > (mis->chordsinMIS(i, j - 1))->total) {
+                            mis->putChordsInMIS(i, j, mis->chordsinMIS(i, tmpChords[k].node1 - 1), mis->chordsinMIS(tmpChords[k].node1 + 1, j - 1), &tmpChords[k]);
+                        } else {
+                            mis->putChordsInMIS(i, j, mis->chordsinMIS(i, j - 1), NULL, NULL);
+                        }
                     } else {
                         mis->putChordsInMIS(i, j, mis->chordsinMIS(i, j - 1), NULL, NULL);
                     }
                 }
+            } else {
+                mis->putChordsInMIS(i, j, mis->chordsinMIS(i, j - 1), NULL, NULL);
             }
+        
         }
         tmpChords.clear();
     }

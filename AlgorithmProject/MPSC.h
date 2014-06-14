@@ -50,6 +50,7 @@ public:
 private:
 	vector<BumpNode*> *previousSequence;
 	vector<BumpNode*> *currentSequence;
+    void computePath();
     void buildCircle();
     vector<BumpNode*> serchDirectRout(vector<BumpNode*>*nodeSequence);
     void buildMis();

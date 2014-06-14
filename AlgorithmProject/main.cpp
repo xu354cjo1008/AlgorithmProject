@@ -112,10 +112,14 @@ int main(int argc, const char * argv[])
         for (int i = 0; i < currentSeq.size(); ++i) {
             if (currentSeq[i]->wireId) {
                 if (currentSeq[i]->isVirtual) {
-                    printf("%d' ", *currentSeq[i]->wireId);
+                    printf("%d'", *currentSeq[i]->wireId);
                 } else {
-                    printf("%d ", *currentSeq[i]->wireId);
+                    printf("%d", *currentSeq[i]->wireId);
                 }
+                if (currentSeq[i]->lcsType == DirectRoute) {
+                    printf("⍋");
+                }
+                printf(" ");
             } else {
                 printf("x ");
             }
@@ -128,10 +132,14 @@ int main(int argc, const char * argv[])
         for (int i = 0; i < currentSeq.size(); ++i) {
             if (currentSeq[i]->wireId) {
                 if (currentSeq[i]->isVirtual) {
-                    printf("%d' ", *currentSeq[i]->wireId);
+                    printf("%d'", *currentSeq[i]->wireId);
                 } else {
-                    printf("%d ", *currentSeq[i]->wireId);
+                    printf("%d", *currentSeq[i]->wireId);
                 }
+                if (currentSeq[i]->lcsType == DirectRoute) {
+                    printf("⍋");
+                }
+                printf(" ");
             } else {
                 printf("x ");
             }
@@ -147,76 +155,15 @@ int main(int argc, const char * argv[])
 
         routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
         
-     //   routingMap->printBox(1, 1);
-     //   routingMap->printBox(1, 2);
-        //routingMap->printBox(1, 3);
-        // routingMap->printBox(0, 3);
-     //   routingMap->printBox(2, 1);
-     //   routingMap->printBox(2, 2);
-        //routingMap->printBox(2, 3);
-        // routingMap->printBox(1, 3);
-       // routingMap->printBox(3, 1);
-       // routingMap->printBox(3, 2);
-        //routingMap->printBox(3, 3);
-        
         //       mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
         //       maping->mapping_incircle(routingMap->map);
         //  maping->mapping_outcircle(routingMap->map);
         //      maping->route_output(routingMap->map);
         
         previousSeq = currentSeq;
-
         k++;
     }
     
-////  algorithm /////////////////////////////////////////
-//    MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
-//    mpsc->compute();
-//    delete mpsc;
-//    routingMap->initMapinLayer(0, 2, 2, previousSeq);
-//    routingMap->initMapinLayer(1, 1, 1, currentSeq);
-//// print the result//////////////////////////////////
-//    printf("current Sequence : ");
-//    for (int i = 0; i < currentSeq.size(); ++i) {
-//        if (currentSeq[i]->wireId) {
-//            if (currentSeq[i]->isVirtual) {
-//                printf("%d' ", *currentSeq[i]->wireId);
-//            } else {
-//                printf("%d ", *currentSeq[i]->wireId);
-//            }
-//        } else {
-//            printf("x ");
-//        }
-//    }
-//    printf("\n");
-//    printf("previous Sequence : ");
-//    for (int i = 0; i < previousSeq.size(); ++i) {
-//        if (previousSeq[i]->wireId) {
-//            if (previousSeq[i]->isVirtual) {
-//                printf("%d' ", *previousSeq[i]->wireId);
-//            } else {
-//                printf("%d ", *previousSeq[i]->wireId);
-//            }
-//        } else {
-//            printf("x ");
-//        }
-//    }
-//    printf("\n");
-    
-    //routingMap->ringMaping(1, 1, 1);
-    routingMap->printBox(1, 1);
-    routingMap->printBox(1, 2);
-    routingMap->printBox(1, 3);
-   // routingMap->printBox(0, 3);
-    routingMap->printBox(2, 1);
-    routingMap->printBox(2, 2);
-    routingMap->printBox(2, 3);
-   // routingMap->printBox(1, 3);
-    routingMap->printBox(3, 1);
-    routingMap->printBox(3, 2);
-    routingMap->printBox(3, 3);
-
-    ////////////////////////////////////////////////////////
     delete routingMap;
     return 0;
 }

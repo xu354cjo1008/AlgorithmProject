@@ -480,11 +480,13 @@ void RoutingMap::printBoxinLayer(int layer, int startRowNum, int startColNum)
 void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
 {
     int sequenceNum = 8 * layer + 4;
+    int preSequenceNum = (layer > 0)? 8 * (layer - 1) + 4: 0;
     int row0 = 0;
     int col0 = 0;
     int row1 = 0;
     int col1 = 0;
     edges side1 = topSide;
+    ///current sequence inside mapping
     for (int i = 0; i < sequenceNum - 4; ++i) {
         layertoMap(layer, startRowNum, startColNum, i, &row0, &col0);
         edges xWitchSide = witchSide(layer, startRowNum, startColNum, i);
@@ -559,6 +561,27 @@ void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
                     } else if(map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == inCircle && map[row0 * mapColNum + col0].left[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
                         insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, topSide, map[row0 * mapColNum + col0].left[0]);
                     }
+//                    switch (xWitchSide) {
+//                        case topSide:
+//                            for (int preSeqPointer = 0; preSeqPointer < map[row0 * mapColNum + col0].buttom.size(); ++preSeqPointer) {
+//                                if (map[row0 * mapColNum + col0].buttom[preSeqPointer]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[preSeqPointer]->nextNode == map[row1 * mapColNum + col1].top[k]) {
+//                                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomSide, pointerTmp, topSide, map[row0 * mapColNum + col0].buttom[preSeqPointer]);
+//                                }
+//                            }
+//                            break;
+//                        case rightSide:
+//                            <#statements#>
+//                            break;
+//                        case bottomSide:
+//                            <#statements#>
+//                            break;
+//                        case leftSide:
+//                            <#statements#>
+//                            break;
+//                            
+//                        default:
+//                            break;
+//                    }
                 }
             } else if(side1 == rightSide){
                 for (int k = 1; k < map[row1 * mapColNum + col1].right.size(); ++k) {
