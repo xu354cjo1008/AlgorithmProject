@@ -239,8 +239,6 @@ void RoutingMap::eraseVnode(int rowNum, int colNum, edges side, int pointer)
 
 void RoutingMap::initMapinLayer(int layer, int layerRowNum, int layerColNum, vector<BumpNode*>currentSeq)
 {
-  //  int rowSize = 2 * layer + 1;
-  //  int colSize = 2 * layer + 1;
     int mapPointer = -1;
     int firstBumpPos = 0;
     int row = 0;
@@ -472,17 +470,17 @@ void RoutingMap::printBoxinLayer(int layer, int startRowNum, int startColNum)
     if (layerBoxSize <= 0) {
         layerBoxSize = 1;
     }
+    printf("/***********************************************************************************************************/\n");
     for (int i = 0; i < layerBoxSize; ++i) {
         layertoMap(layer, startRowNum, startColNum, p + i, &row, &col);
         printBox(row, col);
     }
+    printf("/***********************************************************************************************************/\n");
 }
 void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
 {
     int currentSequenceNum = 8 * layer + 4;
-    int currentLayerNum = currentSequenceNum - 4;
     int preSequenceNum = (layer > 0)? 8 * (layer - 1) + 4: 0;
-    int preLayerNum = preSequenceNum - 4;
     int startSeqPointer = 0;
     int startBoxRow = 0;
     int startBoxCol = 0;
@@ -1351,6 +1349,12 @@ void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int sta
         }
     }
 
+}
+int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
+{
+    int pathMapingState = 0;
+    
+    return pathMapingState;
 }
 edges RoutingMap::directionDetect(int startNodeRow, int startNodeCol, int endNodeRow, int endNodeCol)
 {

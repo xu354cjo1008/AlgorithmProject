@@ -61,7 +61,8 @@ private:
     int seqPointertoLayerPointer(int layer, int seqPointer);
     edges witchSide(int layer, int startRowNum, int startColNum, int pointer);
     void insertNodetoPath(int layer, int startRow, int startCol, int startSeqPoint, edges startSide, int endLayer, int endStartRow, int endStartCol, int endSeqPoint, edges endSide, BumpNode *startNode, BumpNode *endNode);
-    
+    int layerPathMaping(int layer, int startRow, int startCol);
+
     edges directionDetect(int startNodeRow, int startNodeCol, int endNodeRow, int endNodeCol);
 
     void moveNode(int fromRow, int fromCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide, bool seqLeft);

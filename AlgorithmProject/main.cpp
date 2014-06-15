@@ -108,7 +108,7 @@ int main(int argc, const char * argv[])
         for (int i = 0; i < readFile->bvec[k].size(); ++i) {
             currentSeq.push_back(&readFile->bvec[k][i]);
         }
-        printf("LCS Sequence result : ");
+        printf("LCS Sequence result :\n -> ");
         for (int i = 0; i < currentSeq.size(); ++i) {
             if (currentSeq[i]->wireId) {
                 if (currentSeq[i]->isVirtual) {
@@ -128,7 +128,7 @@ int main(int argc, const char * argv[])
         MPSC *mpsc = new MPSC(&previousSeq, &currentSeq);
         mpsc->compute();
         delete mpsc;
-        printf("MPSC Sequence result : ");
+        printf("MPSC Sequence result :\n -> ");
         for (int i = 0; i < currentSeq.size(); ++i) {
             if (currentSeq[i]->wireId) {
                 if (currentSeq[i]->isVirtual) {
@@ -147,11 +147,7 @@ int main(int argc, const char * argv[])
         printf("\n");
         
         routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-        printf("before mapping\n");
-        routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
-
         routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
-        printf("after mapping\n");
 
         routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
         

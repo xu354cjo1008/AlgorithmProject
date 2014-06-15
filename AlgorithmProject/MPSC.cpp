@@ -225,7 +225,6 @@ void MPSC::buildCircle()
     }
     for (leftPointer = 0; leftPointer < currentSequence->size(); ++leftPointer) {
         leftPointNode = (*currentSequence)[leftPointer];
-        bool s = isTrace[leftPointer];
         if ((!leftPointNode->isVirtual && leftPointNode->lcsType != UnDirectRoute) || isTrace[leftPointer] == true) {
             continue;
         }
@@ -303,12 +302,9 @@ void MPSC::refreshSequence()
         if (outSequence[i].node2 < currentSequence->size()) {
             (*currentSequence)[outSequence[i].node1]->mpscType = inCircle;
             (*currentSequence)[outSequence[i].node2]->mpscType = inCircle;
-            printf("%d : %d\n", *(*currentSequence)[outSequence[i].node1]->wireId, *(*currentSequence)[outSequence[i].node2]->wireId);
         } else {
             (*currentSequence)[outSequence[i].node1]->mpscType = inCircle;
             (*previousSequence)[previousSequence->size() - (outSequence[i].node2 - currentSequence->size() + 1)]->mpscType = inCircle;
-            printf("%d : %d\n", *(*currentSequence)[outSequence[i].node1]->wireId, *(*previousSequence)[previousSequence->size() - (outSequence[i].node2 - currentSequence->size() + 1)]->wireId);
-
         }
     }
 
