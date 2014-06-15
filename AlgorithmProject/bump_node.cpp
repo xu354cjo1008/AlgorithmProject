@@ -37,13 +37,8 @@ BumpNode::BumpNode(BumpNode *copyFormNode)
     lcsType = copyFormNode->lcsType;
     mpscType = copyFormNode->mpscType;
     isVirtual = true;
-    absolutedX1 = copyFormNode->absolutedX1;
-    absolutedY1 = copyFormNode->absolutedY1;
-    absolutedX2 = copyFormNode->absolutedX2;
-    absolutedY2 = copyFormNode->absolutedY2;
-    relativeX = copyFormNode->relativeX;
-    relativeY = copyFormNode->relativeY;
     copyFormNode->nextNode = this;
+    previousNode = copyFormNode;
 }
 
 

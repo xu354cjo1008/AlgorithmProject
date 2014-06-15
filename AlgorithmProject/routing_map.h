@@ -25,6 +25,7 @@ typedef enum
     rightAngle,
     bottomAngle,
     leftAngle,
+    center,
 }edges;
 
 class RoutingMap
@@ -59,7 +60,10 @@ private:
     void layertoMap(int layer, int startRowNum, int startColNum, int pointer, int *rowNum, int *colNum);
     int seqPointertoLayerPointer(int layer, int seqPointer);
     edges witchSide(int layer, int startRowNum, int startColNum, int pointer);
-    void insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node);
+    void insertNodetoPath(int layer, int startRow, int startCol, int startSeqPoint, edges startSide, int endLayer, int endStartRow, int endStartCol, int endSeqPoint, edges endSide, BumpNode *startNode, BumpNode *endNode);
+    
+    edges directionDetect(int startNodeRow, int startNodeCol, int endNodeRow, int endNodeCol);
+
     void moveNode(int fromRow, int fromCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide, bool seqLeft);
     void refineBoxRoute(int layer, int startRowNum, int startColNum, int pointer);
 };

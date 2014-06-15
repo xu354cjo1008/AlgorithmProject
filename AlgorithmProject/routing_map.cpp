@@ -343,6 +343,7 @@ void RoutingMap::layertoMap(int layer, int startRowNum, int startColNum, int poi
         }
     }
 }
+
 int RoutingMap::seqPointertoLayerPointer(int layer, int seqPointer)
 {
     int layerPointer = 0;
@@ -472,326 +473,908 @@ void RoutingMap::printBoxinLayer(int layer, int startRowNum, int startColNum)
         layerBoxSize = 1;
     }
     for (int i = 0; i < layerBoxSize; ++i) {
-       // seqtoMap(layer, startRowNum, startColNum, p + i, &row, &col, &side);
         layertoMap(layer, startRowNum, startColNum, p + i, &row, &col);
         printBox(row, col);
     }
 }
 void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
 {
-    int sequenceNum = 8 * layer + 4;
+    int currentSequenceNum = 8 * layer + 4;
+    int currentLayerNum = currentSequenceNum - 4;
     int preSequenceNum = (layer > 0)? 8 * (layer - 1) + 4: 0;
-    int row0 = 0;
-    int col0 = 0;
-    int row1 = 0;
-    int col1 = 0;
-    edges side1 = topSide;
-    ///current sequence inside mapping
-    for (int i = 0; i < sequenceNum - 4; ++i) {
-        layertoMap(layer, startRowNum, startColNum, i, &row0, &col0);
-        edges xWitchSide = witchSide(layer, startRowNum, startColNum, i);
-        switch (xWitchSide) {
-            case topAngle:
-                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
-                }
-                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
-                }
-                break;
-            case rightAngle:
-                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
-                }
-                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
-                }
-                break;
-            case bottomAngle:
-                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
-                }
-                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
-                }
-                break;
-            case leftAngle:
-                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
-                }
-                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
-                }
-                break;
-            case topSide:
-                if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].top[0]);
-                }
-                break;
-            case rightSide:
-                if (map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].right[0]);
-                }
-                break;
-            case bottomSide:
-                if (map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].buttom[0]);
-                }
-                break;
-            case leftSide:
-                if (map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == outCircle) {
-                    outCircleSequence.push_back(map[row0 * mapColNum + col0].left[0]);
-                }
-                break;
-                
-            default:
-                break;
-        }
-        for (int j = 0; j < sequenceNum; ++j) {
-            seqtoMap(layer, startRowNum, startColNum, j, &row1, &col1, &side1);
-            int pointerTmp = seqPointertoLayerPointer(layer, j);
-            if (side1 == topSide) {
-                for (int k = 1; k < map[row1 * mapColNum + col1].top.size(); ++k) {
-                    if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == inCircle && map[row0 * mapColNum + col0].top[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, topAngle, pointerTmp, topSide, map[row0 * mapColNum + col0].top[0]);
-                    } else if(map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == inCircle && map[row0 * mapColNum + col0].right[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, rightAngle, pointerTmp, topSide, map[row0 * mapColNum + col0].right[0]);
-                    } else if(map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomAngle, pointerTmp, topSide, map[row0 * mapColNum + col0].buttom[0]);
-                    } else if(map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == inCircle && map[row0 * mapColNum + col0].left[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, topSide, map[row0 * mapColNum + col0].left[0]);
+    int preLayerNum = preSequenceNum - 4;
+    int startSeqPointer = 0;
+    int startBoxRow = 0;
+    int startBoxCol = 0;
+    edges startBoxSide = topSide;
+
+    int endSeqPointer = 0;
+    int endBoxRow = 0;
+    int endBoxCol = 0;
+    edges endBoxSide = topSide;
+
+
+    int searchStartPointer = 0;
+    int searchEndPointer = 0;
+    if (layer > 0) {
+        //previous layer to current path node insert
+        for (startSeqPointer = 0; startSeqPointer < preSequenceNum; ++startSeqPointer) {
+            seqtoMap(layer - 1, startRowNum + 1, startColNum + 1, startSeqPointer, &startBoxRow, &startBoxCol, &startBoxSide);
+            switch (startBoxSide) {
+                case topSide:
+                    for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].top.size(); ++searchStartPointer) {
+                        if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->lcsType == UnDirectRoute || (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->lcsType == DirectRoute && map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->mpscType == outCircle)) {
+                            continue;
+                        }
+                        bool searchFinish = false;
+                        for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                            seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                            switch (endBoxSide) {
+                                case topSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case rightSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case bottomSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case leftSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (searchFinish) {
+                                break;
+                            }
+                        }
                     }
-//                    switch (xWitchSide) {
-//                        case topSide:
-//                            for (int preSeqPointer = 0; preSeqPointer < map[row0 * mapColNum + col0].buttom.size(); ++preSeqPointer) {
-//                                if (map[row0 * mapColNum + col0].buttom[preSeqPointer]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[preSeqPointer]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-//                                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomSide, pointerTmp, topSide, map[row0 * mapColNum + col0].buttom[preSeqPointer]);
-//                                }
-//                            }
-//                            break;
-//                        case rightSide:
-//                            <#statements#>
-//                            break;
-//                        case bottomSide:
-//                            <#statements#>
-//                            break;
-//                        case leftSide:
-//                            <#statements#>
-//                            break;
-//                            
-//                        default:
-//                            break;
-//                    }
-                }
-            } else if(side1 == rightSide){
-                for (int k = 1; k < map[row1 * mapColNum + col1].right.size(); ++k) {
-                    if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == inCircle && map[row0 * mapColNum + col0].top[0]->nextNode == map[row1 * mapColNum + col1].right[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, topAngle, pointerTmp, rightSide, map[row0 * mapColNum + col0].top[0]);
-                    } else if(map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == inCircle && map[row0 * mapColNum + col0].right[0]->nextNode == map[row1 * mapColNum + col1].right[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, rightAngle, pointerTmp, rightSide, map[row0 * mapColNum + col0].right[0]);
-                    } else if(map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[0]->nextNode == map[row1 * mapColNum + col1].right[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomAngle, pointerTmp, rightSide, map[row0 * mapColNum + col0].buttom[0]);
-                    } else if(map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == inCircle && map[row0 * mapColNum + col0].left[0]->nextNode == map[row1 * mapColNum + col1].right[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, rightSide, map[row0 * mapColNum + col0].left[0]);
+                    break;
+                case rightSide:
+                    for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].right.size(); ++searchStartPointer) {
+                        if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->lcsType == UnDirectRoute || (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->lcsType == DirectRoute && map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->mpscType == outCircle)) {
+                            continue;
+                        }
+                        bool searchFinish = false;
+                        for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                            seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                            switch (endBoxSide) {
+                                case topSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case rightSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case bottomSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case leftSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (searchFinish) {
+                                break;
+                            }
+                        }
                     }
-                }
-            } else if(side1 == bottomSide){
-                for (int k = 1; k < map[row1 * mapColNum + col1].buttom.size(); ++k) {
-                    if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == inCircle && map[row0 * mapColNum + col0].top[0]->nextNode == map[row1 * mapColNum + col1].buttom[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, topAngle, pointerTmp, bottomSide, map[row0 * mapColNum + col0].top[0]);
-                    } else if(map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == inCircle && map[row0 * mapColNum + col0].right[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, rightAngle, pointerTmp, bottomSide, map[row0 * mapColNum + col0].right[0]);
-                    } else if(map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomAngle, pointerTmp, bottomSide, map[row0 * mapColNum + col0].buttom[0]);
-                    } else if(map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == inCircle && map[row0 * mapColNum + col0].left[0]->nextNode == map[row1 * mapColNum + col1].top[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, bottomSide, map[row0 * mapColNum + col0].left[0]);
+                    break;
+                case bottomSide:
+                    for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].buttom.size(); ++searchStartPointer) {
+                        if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->lcsType == UnDirectRoute || (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->lcsType == DirectRoute && map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->mpscType == outCircle)) {
+                            continue;
+                        }
+                        bool searchFinish = false;
+                        for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                            seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                            switch (endBoxSide) {
+                                case topSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case rightSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case bottomSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case leftSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (searchFinish) {
+                                break;
+                            }
+                        }
                     }
-                }
-            } else if(side1 == leftSide){
-                for (int k = 1; k < map[row1 * mapColNum + col1].left.size(); ++k) {
-                    if (map[row0 * mapColNum + col0].top[0]->wireId && map[row0 * mapColNum + col0].top[0]->mpscType == inCircle && map[row0 * mapColNum + col0].top[0]->nextNode == map[row1 * mapColNum + col1].left[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, topAngle, pointerTmp, leftSide, map[row0 * mapColNum + col0].top[0]);
-                    } else if(map[row0 * mapColNum + col0].right[0]->wireId && map[row0 * mapColNum + col0].right[0]->mpscType == inCircle && map[row0 * mapColNum + col0].right[0]->nextNode == map[row1 * mapColNum + col1].left[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, rightAngle, pointerTmp, leftSide, map[row0 * mapColNum + col0].right[0]);
-                    } else if(map[row0 * mapColNum + col0].buttom[0]->wireId && map[row0 * mapColNum + col0].buttom[0]->mpscType == inCircle && map[row0 * mapColNum + col0].buttom[0]->nextNode == map[row1 * mapColNum + col1].left[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, bottomAngle, pointerTmp, leftSide, map[row0 * mapColNum + col0].buttom[0]);
-                    } else if(map[row0 * mapColNum + col0].left[0]->wireId && map[row0 * mapColNum + col0].left[0]->mpscType == inCircle && map[row0 * mapColNum + col0].left[0]->nextNode == map[row1 * mapColNum + col1].left[k]) {
-                        insertNodetoPath(layer, startRowNum, startColNum, i, leftAngle, pointerTmp, leftSide, map[row0 * mapColNum + col0].left[0]);
+                    break;
+                case leftSide:
+                    for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].left.size(); ++searchStartPointer) {
+                        if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->lcsType == UnDirectRoute || (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->lcsType == DirectRoute && map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->mpscType == outCircle)) {
+                            continue;
+                        }
+                        bool searchFinish = false;
+                        for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                            seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                            switch (endBoxSide) {
+                                case topSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case rightSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case bottomSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case leftSide:
+                                    for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                        if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                            int startLayerPointer = seqPointertoLayerPointer(layer - 1, startSeqPointer);
+                                            int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                            insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer - 1, startRowNum + 1, startColNum + 1,endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                            searchFinish = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (searchFinish) {
+                                break;
+                            }
+                        }
                     }
-                }
+                    break;
+                default:
+                    break;
             }
         }
     }
-    int checkCount = 0;
-    bool routeOK;
-    for (int i = 0; i < sequenceNum - 4; ++i) {
-        layertoMap(layer, startRowNum, startColNum, i, &row0, &col0);
-        edges boxSide = witchSide(layer, startRowNum, startColNum, i);
-        switch (boxSide) {
-            case topAngle:
-                map[row0 * mapColNum + col0].right_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].left_lock = true;
-                break;
+    // current layer to current path node insert
+    for (startSeqPointer = 0; startSeqPointer < currentSequenceNum; ++startSeqPointer) {
+        seqtoMap(layer, startRowNum, startColNum, startSeqPointer, &startBoxRow, &startBoxCol, &startBoxSide);
+        switch (startBoxSide) {
             case topSide:
-                map[row0 * mapColNum + col0].right_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].buttom_lock = true;
-                map[row0 * mapColNum + col0].left_lock = true;
-                break;
-            case rightAngle:
-                map[row0 * mapColNum + col0].buttom_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].left_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
+                for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].top.size(); ++searchStartPointer) {
+                    if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->lcsType == DirectRoute || (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->lcsType == UnDirectRoute && map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->mpscType == outCircle)) {
+                        continue;
+                    }
+                    bool searchFinish = false;
+                    for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                        seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                        switch (endBoxSide) {
+                            case topSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case rightSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case bottomSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case leftSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].top[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        if (searchFinish) {
+                            break;
+                        }
+                    }
+                }
                 break;
             case rightSide:
-                map[row0 * mapColNum + col0].buttom_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].left_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
-                break;
-            case bottomAngle:
-                map[row0 * mapColNum + col0].left_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].buttom_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
+                for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].right.size(); ++searchStartPointer) {
+                    if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->lcsType == DirectRoute || (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->lcsType == UnDirectRoute && map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->mpscType == outCircle)) {
+                        continue;
+                    }
+                    bool searchFinish = false;
+                    for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                        seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                        switch (endBoxSide) {
+                            case topSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case rightSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case bottomSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case leftSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].right[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        if (searchFinish) {
+                            break;
+                        }
+                    }
+                }
                 break;
             case bottomSide:
-                map[row0 * mapColNum + col0].left_lock = false;
-                map[row0 * mapColNum + col0].top_lock = true;
-                map[row0 * mapColNum + col0].buttom_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
-                break;
-            case leftAngle:
-                map[row0 * mapColNum + col0].top_lock = false;
-                map[row0 * mapColNum + col0].left_lock = true;
-                map[row0 * mapColNum + col0].buttom_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
+                for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].buttom.size(); ++searchStartPointer) {
+                    if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->lcsType == DirectRoute || (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->lcsType == UnDirectRoute && map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->mpscType == outCircle)) {
+                        continue;
+                    }
+                    bool searchFinish = false;
+                    for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                        seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                        switch (endBoxSide) {
+                            case topSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case rightSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case bottomSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case leftSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].buttom[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        if (searchFinish) {
+                            break;
+                        }
+                    }
+                }
                 break;
             case leftSide:
-                map[row0 * mapColNum + col0].top_lock = false;
-                map[row0 * mapColNum + col0].left_lock = true;
-                map[row0 * mapColNum + col0].buttom_lock = true;
-                map[row0 * mapColNum + col0].right_lock = true;
+                for (searchStartPointer = 0; searchStartPointer < map[startBoxRow * mapColNum +startBoxCol].left.size(); ++searchStartPointer) {
+                    if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->lcsType == DirectRoute || (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->lcsType == UnDirectRoute && map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->mpscType == outCircle)) {
+                        continue;
+                    }
+                    bool searchFinish = false;
+                    for (endSeqPointer = 0; endSeqPointer < currentSequenceNum; ++endSeqPointer) {
+                        seqtoMap(layer, startRowNum, startColNum, endSeqPointer, &endBoxRow, &endBoxCol, &endBoxSide);
+                        switch (endBoxSide) {
+                            case topSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].top.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].top[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case rightSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].right.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].right[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case bottomSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].buttom.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].buttom[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            case leftSide:
+                                for (searchEndPointer = 1; searchEndPointer < map[endBoxRow * mapColNum +endBoxCol].left.size(); ++searchEndPointer) {
+                                    if (map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer]->nextNode == map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]) {
+                                        int startLayerPointer = seqPointertoLayerPointer(layer, startSeqPointer);
+                                        int endLayerPointer = seqPointertoLayerPointer(layer, endSeqPointer);
+                                        insertNodetoPath(layer, startRowNum, startColNum, startLayerPointer, startBoxSide, layer, startRowNum, startColNum, endLayerPointer, endBoxSide, map[startBoxRow * mapColNum +startBoxCol].left[searchStartPointer], map[endBoxRow * mapColNum +endBoxCol].left[searchEndPointer]);
+                                        searchFinish = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        if (searchFinish) {
+                            break;
+                        }
+                    }
+                }
                 break;
-                
             default:
                 break;
         }
-        routeOK = boxnode_measurement(&map[row0 * mapColNum + col0]);
-        if (!routeOK) {
-            printf("route fail\n");
-            refineBoxRoute(layer, startRowNum, startColNum, i);
-            checkCount ++;
-            if (checkCount > 3) {
-                ++i;
-                checkCount = 0;
-            }
-            --i;
-        }
     }
+    
 }
 
-void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int startPoint, edges startSide, int endPoint, edges endSide, BumpNode *node)
+void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int startSeqPoint, edges startNodeSide, int endLayer, int endStartRow, int endStartCol, int endSeqPoint, edges endNodeSide, BumpNode *startNode, BumpNode *endNode)
 {
-    int rowSize = 2 * layer + 1;
-    int colSize = 2 * layer + 1;
-    int row0 = 0;
-    int col0 = 0;
-    int row1 = 0;
-    int col1 = 0;
-    if (endPoint == 0) {
-        if (startPoint >= 3 * (rowSize - 1) && startPoint < 4 * (rowSize - 1)) {
-            endPoint = 4 * (rowSize - 1);
+    //find start node and end node side
+    switch (startNodeSide) {
+        case topSide:
+            if (startNode->isVirtual == false) {
+                startNodeSide = topAngle;
+            }
+            break;
+        case rightSide:
+            if (startNode->isVirtual == false) {
+                startNodeSide = rightAngle;
+            }
+            break;
+        case bottomSide:
+            if (startNode->isVirtual == false) {
+                startNodeSide = bottomAngle;
+            }
+            break;
+        case leftSide:
+            if (startNode->isVirtual == false) {
+                startNodeSide = leftAngle;
+            }
+            break;
+        default:
+            break;
+    }
+    switch (endNodeSide) {
+        case topSide:
+            if (endNode->isVirtual == false) {
+                endNodeSide = topAngle;
+            }
+            break;
+        case rightSide:
+            if (endNode->isVirtual == false) {
+                endNodeSide = rightAngle;
+            }
+            break;
+        case bottomSide:
+            if (endNode->isVirtual == false) {
+                endNodeSide = bottomAngle;
+            }
+            break;
+        case leftSide:
+            if (endNode->isVirtual == false) {
+                endNodeSide = leftAngle;
+            }
+            break;
+        default:
+            break;
+    }
+    //change previous layer to current layer
+    if (layer != endLayer) {
+        switch (startNodeSide) {
+            case topAngle:
+                startNodeSide = leftAngle;
+                startSeqPoint = startSeqPoint + 1;
+                break;
+            case rightAngle:
+                startNodeSide = topAngle;
+                startSeqPoint = startSeqPoint + 3;
+                break;
+            case bottomAngle:
+                startNodeSide = rightAngle;
+                startSeqPoint = startSeqPoint + 5;
+                break;
+            case leftAngle:
+                startNodeSide = bottomAngle;
+                startSeqPoint = startSeqPoint + 7;
+                break;
+            case topSide:
+                startNodeSide = bottomSide;
+                startSeqPoint = startSeqPoint + 1;
+                break;
+            case rightSide:
+                startNodeSide = leftSide;
+                startSeqPoint = startSeqPoint + 3;
+                break;
+            case bottomSide:
+                startNodeSide = topSide;
+                startSeqPoint = startSeqPoint + 5;
+                break;
+            case leftSide:
+                startNodeSide = rightSide;
+                startSeqPoint = startSeqPoint + 7;
+                break;
+            default:
+                break;
         }
     }
-    layertoMap(layer, startRow, startCol, endPoint, &row1, &col1);
-    if (endPoint > startPoint) {
-        if (endPoint > 0 && endPoint <= colSize - 1) {   //top side
-            if (endSide == leftSide) {
-                endPoint --;
-            }
-        } else if(endPoint > colSize && endPoint <= colSize + rowSize - 2) {   //right side
-            if (endSide == topSide) {
-                endPoint --;
-            }
-        } else if(endPoint > colSize + rowSize - 2 && endPoint <= 2 * colSize + rowSize - 3) {
-            if (endSide == rightSide) {
-                endPoint --;
-            }
-        } else if(endPoint > 2 * colSize + rowSize - 3 && endPoint <= 2 * (rowSize + colSize) - 5) {
-            if (endSide == bottomSide) {
-                endPoint --;
+    int searchPointer = 0;
+    edges startNodeinMapEdges = witchSide(layer, startRow, startCol, startSeqPoint);
+    edges endNodeinMapEdges = witchSide(layer, startRow, startCol, endSeqPoint);
+    if (endSeqPoint > startSeqPoint) {
+        //search path clockwise
+        //假如startnode在下一格與現在的邊邊上 則startNode Pointer + 1
+        switch (startNodeinMapEdges) {
+            case topAngle:
+                if (startNodeSide == rightAngle || startNodeSide == rightSide || startNodeSide == bottomAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case rightAngle:
+                if (startNodeSide == bottomAngle || startNodeSide == bottomSide || startNodeSide == leftAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case bottomAngle:
+                if (startNodeSide == leftAngle || startNodeSide == leftSide || startNodeSide == topAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case leftAngle:
+                if (startNodeSide == topAngle || startNodeSide == topSide || startNodeSide == rightAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case topSide:
+                if (startNodeSide == rightAngle || startNodeSide == rightSide || startNodeSide == bottomAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case rightSide:
+                if (startNodeSide == bottomAngle || startNodeSide == bottomSide || startNodeSide == leftAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case bottomSide:
+                if (startNodeSide == leftAngle || startNodeSide == leftSide || startNodeSide == topAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            case leftSide:
+                if (startNodeSide == topAngle || startNodeSide == topSide || startNodeSide == rightAngle) {
+                    ++startSeqPoint;
+                }
+                break;
+            default:
+                break;
+        }
+        //假如endnode在前一格與現在的邊邊上 則endNode Pointer - 1
+        switch (endNodeinMapEdges) {
+            case topAngle:
+                if (endNodeSide == bottomAngle || endNodeSide == bottomSide || endNodeSide == leftAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case rightAngle:
+                if (endNodeSide == leftAngle || endNodeSide == leftSide || endNodeSide == topAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case bottomAngle:
+                if (endNodeSide == topAngle || endNodeSide == topSide || endNodeSide == rightAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case leftAngle:
+                if (endNodeSide == rightAngle || endNodeSide == rightSide || endNodeSide == bottomAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case topSide:
+                if (endNodeSide == leftAngle || endNodeSide == leftSide || endNodeSide == topAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case rightSide:
+                if (endNodeSide == topAngle || endNodeSide == topSide || endNodeSide == rightAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case bottomSide:
+                if (endNodeSide == rightAngle || endNodeSide == rightSide || endNodeSide == bottomAngle) {
+                    --endSeqPoint;
+                }
+                break;
+            case leftSide:
+                if (endNodeSide == bottomAngle || endNodeSide == bottomSide || endNodeSide == leftAngle) {
+                    --endSeqPoint;
+                }
+                break;
+                
+            default:
+                break;
+        }
+        //begin to insert path
+        int insertBoxRow, insertBoxCol;
+        BumpNode *previousNode = startNode;
+        for (searchPointer = startSeqPoint; searchPointer < endSeqPoint; ++searchPointer) {
+            edges searchBoxinMapEdges = witchSide(layer, startRow, startCol, searchPointer);
+            layertoMap(layer, startRow, startCol, searchPointer, &insertBoxRow, &insertBoxCol);
+            if (searchBoxinMapEdges == topAngle || searchBoxinMapEdges == topSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, rightSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == rightAngle || searchBoxinMapEdges == rightSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, bottomSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == bottomAngle || searchBoxinMapEdges == bottomSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, leftSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == leftAngle || searchBoxinMapEdges == leftSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, topSide, newNode, true);
+                previousNode = newNode;
             }
         }
-        for (int i = startPoint; i < endPoint; ++i) {
-            layertoMap(layer, startRow, startCol, i, &row0, &col0);
-            if (i < colSize - 1) {   //top side
-                if (startSide == topAngle || startSide == leftAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, rightSide, vnode, false);
+    } else if(endSeqPoint < startSeqPoint) {
+        //search path counterclockwise
+        //假如startnode在下一格與現在的邊邊上 則startNode Pointer - 1
+        switch (startNodeinMapEdges) {
+            case topAngle:
+                if (startNodeSide == bottomAngle || startNodeSide == bottomSide || startNodeSide == leftAngle) {
+                    --startSeqPoint;
                 }
-            } else if(i >= colSize - 1 && i < colSize + rowSize - 2) {   //right side
-                if (startSide == topAngle || startSide == rightAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, bottomSide, vnode, false);
+                break;
+            case rightAngle:
+                if (startNodeSide == leftAngle || startNodeSide == leftSide || startNodeSide == topAngle) {
+                    --startSeqPoint;
                 }
-            } else if(i >= colSize + rowSize - 2 && i < 2 * colSize + rowSize - 3) {
-                if (startSide == rightAngle || startSide == bottomAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, leftSide, vnode, false);
+                break;
+            case bottomAngle:
+                if (startNodeSide == topAngle || startNodeSide == topSide || startNodeSide == rightAngle) {
+                    --startSeqPoint;
                 }
-            } else if(i >= 2 * colSize + rowSize - 3 && i < 2 * (rowSize + colSize) - 5) {
-                if (startSide == bottomAngle || startSide == leftAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, topSide, vnode, false);
+                break;
+            case leftAngle:
+                if (startNodeSide == rightAngle || startNodeSide == rightSide || startNodeSide == bottomAngle) {
+                    --startSeqPoint;
                 }
-            }
+                break;
+            case topSide:
+                if (startNodeSide == leftAngle || startNodeSide == leftSide || startNodeSide == topAngle) {
+                    --startSeqPoint;
+                }
+                break;
+            case rightSide:
+                if (startNodeSide == topAngle || startNodeSide == topSide || startNodeSide == rightAngle) {
+                    --startSeqPoint;
+                }
+                break;
+            case bottomSide:
+                if (startNodeSide == rightAngle || startNodeSide == rightSide || startNodeSide == bottomAngle) {
+                    --startSeqPoint;
+                }
+                break;
+            case leftSide:
+                if (startNodeSide == bottomAngle || startNodeSide == bottomSide || startNodeSide == leftAngle) {
+                    --startSeqPoint;
+                }
+                break;
+                
+            default:
+                break;
         }
-    } else if(endPoint < startPoint){
-        if (endPoint >= 0 && endPoint < colSize - 1) {   //top side
-            if (endSide == rightSide) {
-                endPoint ++;
-            }
-        } else if(endPoint >= colSize && endPoint < colSize + rowSize - 2) {   //right side
-            if (endSide == bottomSide) {
-                endPoint ++;
-            }
-        } else if(endPoint >= colSize + rowSize - 2 && endPoint < 2 * colSize + rowSize - 3) {
-            if (endSide == leftSide) {
-                endPoint ++;
-            }
-        } else if(endPoint >= 2 * colSize + rowSize - 3 && endPoint < 2 * (rowSize + colSize) - 5) {
-            if (endSide == topSide) {
-                endPoint ++;
-            }
+        //假如endnode在前一格與現在的邊邊上 則endNode Pointer + 1
+        switch (endNodeinMapEdges) {
+            case topAngle:
+                if (endNodeSide == rightAngle || endNodeSide == rightSide || endNodeSide == bottomAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case rightAngle:
+                if (endNodeSide == bottomAngle || endNodeSide == bottomSide || endNodeSide == leftAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case bottomAngle:
+                if (endNodeSide == leftAngle || endNodeSide == leftSide || endNodeSide == topAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case leftAngle:
+                if (endNodeSide == topAngle || endNodeSide == topSide || endNodeSide == rightAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case topSide:
+                if (endNodeSide == rightAngle || endNodeSide == rightSide || endNodeSide == bottomAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case rightSide:
+                if (endNodeSide == bottomAngle || endNodeSide == bottomSide || endNodeSide == leftAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case bottomSide:
+                if (endNodeSide == leftAngle || endNodeSide == leftSide || endNodeSide == topAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+            case leftSide:
+                if (endNodeSide == topAngle || endNodeSide == topSide || endNodeSide == rightAngle) {
+                    ++endSeqPoint;
+                }
+                break;
+                
+            default:
+                break;
         }
-        for (int i = startPoint; i > endPoint; --i) {
-            layertoMap(layer, startRow, startCol, i, &row0, &col0);
-            if (i <= colSize - 1) {   //top side
-                if (startSide == rightAngle || startSide == bottomAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, leftSide, vnode, false);
-                }
-            } else if(i > colSize - 1 && i <= colSize + rowSize - 2) {   //right side
-                if (startSide == bottomAngle || startSide == leftAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, topSide, vnode, false);
-                }
-            } else if(i > colSize + rowSize - 2 && i <= 2 * colSize + rowSize - 3) {
-                if (startSide == leftAngle || startSide == topAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, rightSide, vnode, false);
-                }
-            } else if(i > 2 * colSize + rowSize - 3 && i <= 2 * (rowSize + colSize) - 5) {
-                if (startSide == topAngle || startSide == rightAngle) {
-                    BumpNode *vnode = new BumpNode(node->id, node->wireId, node->lcsType, true);
-                    vnodeInserttoBox(row0, col0, bottomSide, vnode, false);
-                }
+        //begin to insert path
+        int insertBoxRow, insertBoxCol;
+        BumpNode *previousNode = startNode;
+        for (searchPointer = startSeqPoint; searchPointer > endSeqPoint; --searchPointer) {
+            edges searchBoxinMapEdges = witchSide(layer, startRow, startCol, searchPointer);
+            layertoMap(layer, startRow, startCol, searchPointer, &insertBoxRow, &insertBoxCol);
+            if (searchBoxinMapEdges == rightAngle || searchBoxinMapEdges == topSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, leftSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == bottomAngle || searchBoxinMapEdges == rightSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, topSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == leftAngle || searchBoxinMapEdges == bottomSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, rightSide, newNode, true);
+                previousNode = newNode;
+            } else if (searchBoxinMapEdges == topAngle || searchBoxinMapEdges == leftSide) {
+                BumpNode *newNode = new BumpNode(previousNode);
+                newNode->nextNode = endNode;
+                vnodeInserttoBox(insertBoxRow, insertBoxCol, bottomSide, newNode, true);
+                previousNode = newNode;
             }
         }
     }
+
+}
+edges RoutingMap::directionDetect(int startNodeRow, int startNodeCol, int endNodeRow, int endNodeCol)
+{
+    edges direction;
+    if (endNodeRow < startNodeRow && endNodeCol < startNodeCol) {
+        direction = topAngle;
+    } else if (endNodeRow < startNodeRow && endNodeCol == startNodeCol){
+        direction = topSide;
+    } else if (endNodeRow < startNodeRow && endNodeCol > startNodeCol){
+        direction = rightAngle;
+    } else if (endNodeRow == startNodeRow && endNodeCol < startNodeCol){
+        direction = leftSide;
+    } else if (endNodeRow == startNodeRow && endNodeCol == startNodeCol){
+        direction = center;
+    } else if (endNodeRow == startNodeRow && endNodeCol > startNodeCol) {
+        direction = rightSide;
+    } else if (endNodeRow > startNodeRow && endNodeCol < startNodeCol) {
+        direction = leftAngle;
+    } else if (endNodeRow > startNodeRow && endNodeCol == startNodeCol) {
+        direction = bottomSide;
+    } else if (endNodeRow > startNodeRow && endNodeCol > startNodeCol) {
+        direction = bottomAngle;
+    }
+    return direction;
 }
 void RoutingMap::moveNode(int fromRow, int fromCol, edges fromSide, int fromPointer, int toRow, int toCol, edges toSide, bool seqLeft)
 {
