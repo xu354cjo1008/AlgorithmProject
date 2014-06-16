@@ -150,16 +150,15 @@ int main(int argc, const char * argv[])
         routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
 
         routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
-        
-        //       mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
-        //       maping->mapping_incircle(routingMap->map);
-        //  maping->mapping_outcircle(routingMap->map);
-        //      maping->route_output(routingMap->map);
+
         
         previousSeq = currentSeq;
         k++;
     }
-    
+    mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
+    maping->mapping_incircle(routingMap->map);
+    //maping->mapping_outcircle(routingMap->map);
+    maping->route_output(routingMap->map);
     delete routingMap;
     return 0;
 }

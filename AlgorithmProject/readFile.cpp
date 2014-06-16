@@ -34,7 +34,6 @@ ReadFile::ReadFile()
     s = spacing;
     
     infile >> junk1 >> bound.leftX >> bound.bottomY >> bound.rightX >> bound.topY;
-    printf("%s", junk1.c_str());
     infile >> junk2 >> width;
     infile >> junk3 >> spacing;
     infile >> junk4 >> num_driver;
