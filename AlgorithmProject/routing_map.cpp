@@ -1400,10 +1400,11 @@ void RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int sta
 }
 int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
 {
-    int pathMapingState = 0;
+    int pathMapingState = 1;
     int mapingPointer = 0;
     int layerBoxNum = (layer)?layer * 8 : 1;
     int mapingBoxRow, mapingBoxCol;
+    int routingFailCounter = 0;
     for (mapingPointer = 0; mapingPointer < layerBoxNum; ++mapingPointer) {
         layertoMap(layer, startRow, startCol, mapingPointer, &mapingBoxRow, &mapingBoxCol);
         edges boxSide = witchSide(layer, startRow, startCol, mapingPointer);
@@ -1474,13 +1475,14 @@ int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
         bool mapingSuccess = boxnode_measurement(mapingBox);
         if (!mapingSuccess) {
             printf("%d : %d maping fail\n", mapingBoxRow, mapingBoxCol);
-            switch (boxSide) {
-                case topAngle:
-                    ;
-                    break;
-                    
-                default:
-                    break;
+            refineBoxRoute(layer, startRow, startCol, mapingPointer);
+            --mapingPointer;
+            ++routingFailCounter;
+#define maxFail 5
+            if (routingFailCounter >= maxFail) {
+                ++mapingPointer;
+                pathMapingState = 0;
+                printf("%d : %d can not be refine\n", mapingBoxRow, mapingBoxCol);
             }
         } else {
             if (mapingBox->top_lock == false) {
@@ -1515,6 +1517,7 @@ int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
                     map[mapingBoxRow * mapColNum + mapingBoxCol - 1].right.insert(map[mapingBoxRow * mapColNum + mapingBoxCol - 1].right.begin() + 1, mapingBox->left[i]);
                 }
             }
+            routingFailCounter = 0;
         }
     }
     
@@ -1612,7 +1615,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
     switch (boxSide) {
         case topAngle:
             if (pointer == 0) {
-                if (map[row * mapColNum + col].top[0]->wireId == nullptr) {
+                if (map[row * mapColNum + col].top[0]->lcsType == UnDirectRoute) {
                     if (map[row * mapColNum + col].left.size() > map[row * mapColNum + col].top.size() + 1) {
                         layertoMap(layer, startRowNum, startColNum, pointer, &nextRow, &nextCol);
                         moveNode(row, col, leftSide, (int)(map[row * mapColNum + col].left.size()-1), nextRow, nextCol, topSide, true);
@@ -1622,7 +1625,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
                     }
                     break;
                 }
-                if (map[row * mapColNum + col].right[0]->wireId == nullptr) {
+                if (map[row * mapColNum + col].right[0]->lcsType == UnDirectRoute) {
                     layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                     for (int i = 1; i < map[row * mapColNum + col].right.size(); ++i) {
                         if (map[row * mapColNum + col].right[i]->wireId == map[row * mapColNum + col].top.back()->wireId) {
@@ -1637,7 +1640,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
                 }
             }
             else if(pointer == 8 * layer) {
-                if (map[row * mapColNum + col].top[0]->wireId == nullptr) {
+                if (map[row * mapColNum + col].top[0]->lcsType == UnDirectRoute) {
                     if (map[row * mapColNum + col].left.size() > map[row * mapColNum + col].top.size() + 1) {
                         layertoMap(layer, startRowNum, startColNum, pointer, &nextRow, &nextCol);
                         moveNode(row, col, leftSide, (int)(map[row * mapColNum + col].left.end() - map[row * mapColNum + col].left.begin()), nextRow, nextCol, topSide, true);
@@ -1647,7 +1650,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
                     }
                     break;
                 }
-                if (map[row * mapColNum + col].left[0]->wireId == nullptr) {
+                if (map[row * mapColNum + col].left[0]->lcsType == UnDirectRoute) {
                     layertoMap(layer, startRowNum, startColNum, pointer - 1, &nextRow, &nextCol);
                     for (int i = 1; i < map[row * mapColNum + col].buttom.size(); ++i) {
                         if (map[row * mapColNum + col].buttom[i]->wireId == map[row * mapColNum + col].left[1]->wireId) {
@@ -1663,7 +1666,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case topSide:
-            if (map[row * mapColNum + col].right[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].right[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].right.size(); ++i) {
                     if (map[row * mapColNum + col].right[i]->wireId == map[row * mapColNum + col].top.back()->wireId) {
@@ -1678,12 +1681,12 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case rightAngle:
-            if (map[row * mapColNum + col].right[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].right[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer, &nextRow, &nextCol);
                 moveNode(row, col, topSide, (int)(map[row * mapColNum + col].top.size()-1), nextRow, nextCol, rightSide, true);
                 break;
             }
-            if (map[row * mapColNum + col].buttom[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].buttom[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].buttom.size(); ++i) {
                     if (map[row * mapColNum + col].buttom[i]->wireId == map[row * mapColNum + col].right.back()->wireId) {
@@ -1697,7 +1700,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case rightSide:
-            if (map[row * mapColNum + col].buttom[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].buttom[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].buttom.size(); ++i) {
                     if (map[row * mapColNum + col].buttom[i]->wireId == map[row * mapColNum + col].right.back()->wireId) {
@@ -1712,12 +1715,12 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case bottomAngle:
-            if (map[row * mapColNum + col].buttom[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].buttom[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer, &nextRow, &nextCol);
                 moveNode(row, col, rightSide, (int)(map[row * mapColNum + col].right.size() - 1), nextRow, nextCol, bottomSide, true);
                 break;
             }
-            if (map[row * mapColNum + col].left[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].left[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].left.size(); ++i) {
                     if (map[row * mapColNum + col].left[i]->wireId == map[row * mapColNum + col].buttom.back()->wireId) {
@@ -1732,7 +1735,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case bottomSide:
-            if (map[row * mapColNum + col].left[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].left[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].left.size(); ++i) {
                     if (map[row * mapColNum + col].left[i]->wireId == map[row * mapColNum + col].buttom.back()->wireId) {
@@ -1747,12 +1750,12 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case leftAngle:
-            if (map[row * mapColNum + col].left[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].left[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer, &nextRow, &nextCol);
                 moveNode(row, col, bottomSide, (int)(map[row * mapColNum + col].buttom.size() - 1), nextRow, nextCol, leftSide, true);
                 break;
             }
-            if (map[row * mapColNum + col].top[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].top[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].top.size(); ++i) {
                     if (map[row * mapColNum + col].top[i]->wireId == map[row * mapColNum + col].left.back()->wireId) {
@@ -1767,7 +1770,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
             }
             break;
         case leftSide:
-            if (map[row * mapColNum + col].top[0]->wireId == nullptr) {
+            if (map[row * mapColNum + col].top[0]->lcsType == UnDirectRoute) {
                 layertoMap(layer, startRowNum, startColNum, pointer + 1, &nextRow, &nextCol);
                 for (int i = 1; i < map[row * mapColNum + col].top.size(); ++i) {
                     if (map[row * mapColNum + col].top[i]->wireId == map[row * mapColNum + col].left.back()->wireId) {
@@ -1784,6 +1787,7 @@ void RoutingMap::refineBoxRoute(int layer, int startRowNum, int startColNum, int
         default:
             break;
     }
+    printf("%d : %d refine \n",row, col);
 }
 
 

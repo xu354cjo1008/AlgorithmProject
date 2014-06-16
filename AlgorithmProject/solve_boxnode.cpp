@@ -12,7 +12,7 @@ using namespace std;
 
 bool boxnode_measurement(box *input)
 {
-    int node_capacity = 10;
+    int node_capacity = 3;
     
     if((input->top.size()-1)>node_capacity||(input->right.size()-1)>node_capacity||(input->buttom.size()-1)>node_capacity||(input->left.size()-1)>node_capacity)
     {
