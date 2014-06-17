@@ -103,11 +103,8 @@ int main(int argc, const char * argv[])
     ReadFile *readFile = new ReadFile();
     RoutingMap *routingMap;
     int mapType = (readFile->maxRowNum % 2)? 1 : 0;
-    if (mapType == 0) {
-        routingMap = new RoutingMap(2*(readFile->numBvec-1)+1,2*(readFile->numBvec-1)+1, 0);
-    } else {
-        routingMap = new RoutingMap(2*(readFile->numBvec-1),2*(readFile->numBvec-1), 1);
-    }
+    routingMap = new RoutingMap(readFile->maxRowNum-1,readFile->maxRowNum-1, mapType);
+    
     int k = 0;
     bool firstLayerReady = false;
     while (k < readFile->numBvec) {
