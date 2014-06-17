@@ -1485,11 +1485,14 @@ int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
     int pathMapingState = 1;
     int mapingPointer = 0;
     int layerBoxNum = (layer)?layer * 8 : 1;
+<<<<<<< HEAD
     if (mapType == 0) {
         layerBoxNum = (layer)?layer * 8 : 1;
     } else {
         layerBoxNum = (layer)?(layer - 1) * 8 + 4 : 0;
     }
+=======
+>>>>>>> FETCH_HEAD
     int mapingBoxRow, mapingBoxCol;
     int routingFailCounter = 0;
     for (mapingPointer = 0; mapingPointer < layerBoxNum; ++mapingPointer) {
