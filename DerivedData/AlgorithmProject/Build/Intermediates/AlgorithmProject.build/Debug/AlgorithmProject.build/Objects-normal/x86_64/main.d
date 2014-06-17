@@ -1,8 +1,8 @@
 dependencies: \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/main.cpp \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/MPSC.h \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/bump_node.h \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/routing_map.h \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/solve_boxnode.h \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/readFile.h \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/mapping.h
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/main.cpp \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.h \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/routing_map.h \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/solve_boxnode.h \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.h \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/mapping.h
