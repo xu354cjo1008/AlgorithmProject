@@ -19,7 +19,7 @@ bool smaller_absolutedY1 (BumpNode i,BumpNode j) { return (i.absolutedY1 < j.abs
 ReadFile::ReadFile()
 {
   //  char buffer[200];
-    fstream infile("test16.txt");
+    fstream infile("test144.txt");
     //fstream infile;
    // infile.open("test144.in", ios::in); //read test file
     if (!infile.is_open()) {

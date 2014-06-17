@@ -156,8 +156,8 @@ int main(int argc, const char * argv[])
         printf("\n");
         
         routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-        printf("map initial\n");
-        routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+     //   printf("map initial\n");
+       // routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
         if (firstLayerReady == true) {
             routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
             routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
