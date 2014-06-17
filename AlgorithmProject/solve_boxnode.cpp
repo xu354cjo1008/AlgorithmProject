@@ -12,7 +12,7 @@ using namespace std;
 
 bool boxnode_measurement(box *input)
 {
-    int node_capacity = 5;
+    int node_capacity = 10;
     
     if((input->top.size()-1)>node_capacity||(input->right.size()-1)>node_capacity||(input->buttom.size()-1)>node_capacity||(input->left.size()-1)>node_capacity)
     {
@@ -42,23 +42,23 @@ void sort_node(box *input)
         
         for(int i=(input->top.size()-1);i>=0;i--)    //逆時針旋轉
         {
-            right_ref.push_back(input->top[i]->id);
+            right_ref.push_back(*input->top[i]->wireId);
         }
         for(int i=(input->left.size()-1);i>=0;i--)
         {
-            right_ref.push_back(input->left[i]->id);
+            right_ref.push_back(*input->left[i]->wireId);
         }
         
         //give sort_value & sort BumpNode
         for(int i=0;i<input->right.size();i++)
         {
-            int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();
+            int it = find (right_ref.begin(),right_ref.end(),*input->right[i]->wireId) - right_ref.begin();
             input->right[i]->sort_value = it;
         }
-        sort(input->right.begin(),input->right.end(),sort_node_cmp);
+        sort(input->right.begin()+1,input->right.end(),sort_node_cmp);
         for(int i=0;i<input->buttom.size();i++)
         {
-            int it = find (right_ref.begin(),right_ref.end(),input->buttom[i]->id) - right_ref.begin();
+            int it = find (right_ref.begin(),right_ref.end(),*input->buttom[i]->wireId) - right_ref.begin();
             input->buttom[i]->sort_value = it;
         }
         sort(input->buttom.begin()+1,input->buttom.end(),sort_node_cmp);
@@ -72,19 +72,19 @@ void sort_node(box *input)
             
             for(int i=(input->left.size()-1);i>=0;i--)    //逆時針旋轉
             {
-                top_ref.push_back(input->left[i]->id);
+                top_ref.push_back(*input->left[i]->wireId);
             }
             for(int i=(input->buttom.size()-1);i>=0;i--)
             {
-                top_ref.push_back(input->buttom[i]->id);
+                top_ref.push_back(*input->buttom[i]->wireId);
             }
             for(int i=(input->right.size()-1);i>=0;i--)
             {
-                top_ref.push_back(input->right[i]->id);
+                top_ref.push_back(*input->right[i]->wireId);
             }
             for(int i=0;i<input->top.size();i++)
             {
-                int it = find (top_ref.begin(),top_ref.end(),input->top[i]->id) - top_ref.begin();
+                int it = find (top_ref.begin(),top_ref.end(),*input->top[i]->wireId) - top_ref.begin();
                 input->top[i]->sort_value = it;
             }
             sort(input->top.begin()+1,input->top.end(),sort_node_cmp);
@@ -96,19 +96,19 @@ void sort_node(box *input)
             
             for(int i=input->top.size()-1;i>=0;i--)    //逆時針旋轉
             {
-                right_ref.push_back(input->top[i]->id);
+                right_ref.push_back(*input->top[i]->wireId);
             }
             for(int i=input->left.size()-1;i>=0;i--)
             {
-                right_ref.push_back(input->left[i]->id);
+                right_ref.push_back(*input->left[i]->wireId);
             }
             for(int i=input->buttom.size()-1;i>=0;i--)
             {
-                right_ref.push_back(input->buttom[i]->id);
+                right_ref.push_back(*input->buttom[i]->wireId);
             }
             for(int i=0;i<input->right.size();i++)
             {
-                int it = find (right_ref.begin(),right_ref.end(),input->right[i]->id) - right_ref.begin();
+                int it = find (right_ref.begin(),right_ref.end(),*input->right[i]->wireId) - right_ref.begin();
                 input->right[i]->sort_value = it;
             }
             sort(input->right.begin()+1,input->right.end(),sort_node_cmp);
@@ -120,19 +120,19 @@ void sort_node(box *input)
             
             for(int i=input->right.size()-1;i>=0;i--)    //逆時針旋轉
             {
-                buttom_ref.push_back(input->right[i]->id);
+                buttom_ref.push_back(*input->right[i]->wireId);
             }
             for(int i=input->top.size()-1;i>=0;i--)
             {
-                buttom_ref.push_back(input->top[i]->id);
+                buttom_ref.push_back(*input->top[i]->wireId);
             }
             for(int i=input->left.size()-1;i>=0;i--)
             {
-                buttom_ref.push_back(input->left[i]->id);
+                buttom_ref.push_back(*input->left[i]->wireId);
             }
             for(int i=0;i<input->buttom.size();i++)
             {
-                int it = find (buttom_ref.begin(),buttom_ref.end(),input->buttom[i]->id) - buttom_ref.begin();
+                int it = find (buttom_ref.begin(),buttom_ref.end(),*input->buttom[i]->wireId) - buttom_ref.begin();
                 input->buttom[i]->sort_value = it;
             }
             sort(input->buttom.begin()+1,input->buttom.end(),sort_node_cmp);
@@ -143,19 +143,19 @@ void sort_node(box *input)
             
             for(int i=input->buttom.size()-1;i>=0;i--)    //逆時針旋轉
             {
-                left_ref.push_back(input->buttom[i]->id);
+                left_ref.push_back(*input->buttom[i]->wireId);
             }
             for(int i=input->right.size()-1;i>=0;i--)
             {
-                left_ref.push_back(input->right[i]->id);
+                left_ref.push_back(*input->right[i]->wireId);
             }
             for(int i=input->top.size()-1;i>=0;i--)
             {
-                left_ref.push_back(input->top[i]->id);
+                left_ref.push_back(*input->top[i]->wireId);
             }
             for(int i=0;i<input->left.size();i++)
             {
-                int it = find (left_ref.begin(),left_ref.end(),input->left[i]->id) - left_ref.begin();
+                int it = find (left_ref.begin(),left_ref.end(),*input->left[i]->wireId) - left_ref.begin();
                 input->left[i]->sort_value = it;
             }
             sort(input->left.begin()+1,input->left.end(),sort_node_cmp);
@@ -176,28 +176,34 @@ bool measure_diagonal(box *input,int node_capacity)
     
     for(int i=0;i<input->left.size();i++)
         for(int j=0;j<input->right.size();j++)
-            if(input->left[i]->id==input->right[j]->id){
-                left_slash++;
-                right_slash++;
+            if(*input->left[i]->wireId==*input->right[j]->wireId){
+                if(input->left[i]->nextNode == input->right[j] || input->right[j]->nextNode == input->left[i] ){
+                    left_slash++;
+                    right_slash++;
+                }
             }
     for(int i=0;i<input->top.size();i++)
         for(int j=0;j<input->buttom.size();j++)
-            if(input->top[i]->id==input->buttom[j]->id){
-                left_slash++;
-                right_slash++;
+            if(*input->top[i]->wireId==*input->buttom[j]->wireId){
+                if(input->top[i]->nextNode == input->buttom[j] || input->buttom[j]->nextNode == input->top[i] ){
+                    left_slash++;
+                    right_slash++;
+                }
             }
     
     input->left.pop_back();
     for(int i=0;i<input->left.size();i++)
         for(int j=0;j<input->top.size();j++)
-            if(input->left[i]->id==input->top[j]->id)
-                left_slash++;
+            if(*input->left[i]->wireId==*input->top[j]->wireId)
+                if(input->left[i]->nextNode == input->top[j] || input->top[j]->nextNode == input->left[i])
+                    left_slash++;
         
     input->right.pop_back();
     for(int i=0;i<input->right.size();i++)
         for(int j=0;j<input->buttom.size();j++)
-            if(input->right[i]->id==input->buttom[j]->id)
-                left_slash++;
+            if(*input->right[i]->wireId==*input->buttom[j]->wireId)
+                if(input->right[i]->nextNode == input->buttom[j] || input->buttom[j]->nextNode == input->right[i])
+                    left_slash++;
     
     input->left.push_back(input->top.front());
     input->right.push_back(input->buttom.front());
@@ -205,13 +211,15 @@ bool measure_diagonal(box *input,int node_capacity)
     input->top.pop_back();
     for(int i=0;i<input->top.size();i++)
         for(int j=0;j<input->right.size();j++)
-            if(input->top[i]->id==input->right[j]->id)
-                right_slash++;
+            if(*input->top[i]->wireId==*input->right[j]->wireId)
+                if(input->top[i]->nextNode == input->right[j] || input->right[j]->nextNode == input->top[i])
+                    right_slash++;
     
     input->buttom.pop_back();
     for(int i=0;i<input->buttom.size();i++)
         for(int j=0;j<input->left.size();j++)
-            if(input->buttom[i]->id==input->left[j]->id)
+            if(*input->buttom[i]->wireId==*input->left[j]->wireId)
+                if(input->buttom[i]->nextNode == input->left[j] || input->left[j]->nextNode == input->buttom[i])
                 right_slash++;
     
     input->left.pop_back();

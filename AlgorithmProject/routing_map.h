@@ -31,7 +31,7 @@ typedef enum
 class RoutingMap
 {
 public:
-    RoutingMap(int rowNum, int colNum);              //假設bump排列為方形
+    RoutingMap(int rowNum, int colNum, int type);              //假設bump排列為方形
     ~RoutingMap();
     void nodeInserttoMap(int nodeRow, int nodeCol, BumpNode *node);
     void initMapinLayer(int layer, int layerRowNum, int layerColNum, vector<BumpNode*>currentSeq);
@@ -43,11 +43,13 @@ public:
     void ringMaping(int layer, int startRowNum, int startColNum);
     box *map;
     int mapRowNum, mapColNum;
+    int mapType;
+    
+    vector<BumpNode *>outCircleSequence;
+
 
 private:
     
-    vector<BumpNode *>outCircleSequence;
-    vector<BumpNode *>preOutCircleSequence;
 
     void boxMaping(int mapRow, int mapCol);
     

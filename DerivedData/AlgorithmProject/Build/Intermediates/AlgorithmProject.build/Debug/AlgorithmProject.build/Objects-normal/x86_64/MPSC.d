@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.cpp \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/MPSC.h \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/MPSC.cpp \
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/MPSC.h \
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/bump_node.h

@@ -98,11 +98,23 @@ int main(int argc, const char * argv[])
 //    routingMap->nodeInserttoMap(4, 4, node15);
 
 //read file
+#define routingMapType 0
     vector<BumpNode*>previousSeq;
     ReadFile *readFile = new ReadFile();
-    RoutingMap *routingMap = new RoutingMap(2*(readFile->numBvec-1)+1,2*(readFile->numBvec-1)+1);
+    RoutingMap *routingMap;
+    int mapType = routingMapType;
+    if (mapType == 0) {
+        routingMap = new RoutingMap(2*(readFile->numBvec-1)+1,2*(readFile->numBvec-1)+1, 0);
+    } else {
+        routingMap = new RoutingMap(2*(readFile->numBvec-1),2*(readFile->numBvec-1), 1);
+    }
     int k = 0;
+    bool firstLayerReady = false;
     while (k < readFile->numBvec) {
+        if (readFile->bvec[k].size() == 0) {
+            ++k;
+            continue;
+        }
         readFile->LCS(&readFile->driver, &readFile->bvec[k], readFile->driver.size(), readFile->bvec[k].size());
         vector<BumpNode*>currentSeq;
         for (int i = 0; i < readFile->bvec[k].size(); ++i) {
@@ -147,19 +159,21 @@ int main(int argc, const char * argv[])
         printf("\n");
         
         routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-        routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
-
+        printf("map initial\n");
         routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
-        
-        //       mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s);
-        //       maping->mapping_incircle(routingMap->map);
-        //  maping->mapping_outcircle(routingMap->map);
-        //      maping->route_output(routingMap->map);
+        if (firstLayerReady == true) {
+            routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+            routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
+        }
+        firstLayerReady = true;
         
         previousSeq = currentSeq;
         k++;
     }
-    
+    mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s,readFile->driver, readFile->bump);
+    maping->mapping_incircle(routingMap->map);
+   // maping->mapping_outcircle(routingMap->outCircleSequence);
+    maping->route_output(routingMap->map,"fuckup.out",readFile->bound.leftX,readFile->bound.bottomY,readFile->bound.rightX,readFile->bound.topY);
     delete routingMap;
     return 0;
 }

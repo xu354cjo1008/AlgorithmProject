@@ -46,6 +46,7 @@ public:
     int numBvec;
     int w;
     int s;
+    Boundary bound;
 private:
 
 };

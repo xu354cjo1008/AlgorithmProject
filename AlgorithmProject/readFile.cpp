@@ -26,19 +26,18 @@ ReadFile::ReadFile()
         printf("read file error");
     }
     
-    Boundary bound;
+    
     int width, spacing, num_driver, num_bump;
     string junk1, junk2, junk3, junk4, junk5;
     
-    w = width;
-    s = spacing;
+    
     
     infile >> junk1 >> bound.leftX >> bound.bottomY >> bound.rightX >> bound.topY;
-    printf("%s", junk1.c_str());
     infile >> junk2 >> width;
     infile >> junk3 >> spacing;
     infile >> junk4 >> num_driver;
-    
+    w = width;
+    s = spacing;
    // dsize = new vector<Dsize>[num_driver - 1];
   //  bsize(num_bump-1);
 

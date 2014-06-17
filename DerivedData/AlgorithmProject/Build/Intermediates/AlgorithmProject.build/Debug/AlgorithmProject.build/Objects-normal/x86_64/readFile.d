@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.cpp \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/readFile.h \
-  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/readFile.cpp \
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/readFile.h \
+  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/bump_node.h

@@ -42,10 +42,10 @@ public:
     int sort_value;
     int absolutedX1, absolutedY1, absolutedX2, absolutedY2;
     int relativeX, relativeY;
-    
+    bool isOutsideZone;
     int route_type; //0:straight   |1/2|  |4\3|
-    
-    
+    bool isconnected;
+    int outside_ring_direction;
     BumpNode *route_next;
     BumpNode *nextNode;
     BumpNode *previousNode;
