@@ -76,8 +76,17 @@ void ReadFile::alignment(int bumpNum)
 {
     
     vector<BumpNode>bump_dup = bump;
-
-    int n = sqrt(bumpNum) / 2;
+    int x = MaxY2(&bump_dup);
+    maxRowNum = 0;
+    for (int i = 0; i < bump_dup.size(); ++i) {
+        if (bump_dup[i].absolutedY2 == x) {
+            maxRowNum++;
+        }
+    }
+    int n = maxRowNum / 2;
+    if (maxRowNum%2) {
+        n++;
+    }
     numBvec = n;
     bvec = new vector<BumpNode>[n]; //create n vectors to store rings
     

@@ -46,6 +46,7 @@ public:
     int numBvec;
     int w;
     int s;
+    int maxRowNum;
     Boundary bound;
 private:
 
