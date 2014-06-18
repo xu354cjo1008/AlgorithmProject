@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/bump_node.cpp \
-  /Users/JJLee/Desktop/AlgorithmProject-1/AlgorithmProject/bump_node.h
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.cpp \
+  /Users/JJLee/Documents/developer/algorithm/AlgorithmProject/AlgorithmProject/bump_node.h

@@ -36,6 +36,7 @@ BumpNode::BumpNode(BumpNode *copyFormNode)
     wireId = copyFormNode->wireId;
     lcsType = copyFormNode->lcsType;
     mpscType = copyFormNode->mpscType;
+    outside_ring_direction = copyFormNode->outside_ring_direction;
     isVirtual = true;
     copyFormNode->nextNode = this;
     previousNode = copyFormNode;

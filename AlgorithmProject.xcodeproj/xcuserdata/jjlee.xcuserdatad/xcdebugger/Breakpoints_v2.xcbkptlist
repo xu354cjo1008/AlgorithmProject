@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlgorithmProject/readFile.cpp"
-            timestampString = "424706430.698306"
+            timestampString = "424754798.4971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "ReadFile::alignment(int bumpNum)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlgorithmProject/readFile.cpp"
-            timestampString = "424706428.275488"
+            timestampString = "424754798.4971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "ReadFile::alignment(int bumpNum)"
             landmarkType = "5">
          </BreakpointContent>
@@ -54,7 +54,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlgorithmProject/routing_map.cpp"
@@ -65,6 +65,22 @@
             endingLineNumber = "1320"
             landmarkName = "RoutingMap::insertNodetoPath(int layer, int startRow, int startCol, int startSeqPoint, edges startNodeSide, int endLayer, int endStartRow, int endStartCol, int endSeqPoint, edges endNodeSide, BumpNode *startNode, BumpNode *endNode)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlgorithmProject/main.cpp"
+            timestampString = "424754813.694112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "main(int argc, const char * argv[])"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

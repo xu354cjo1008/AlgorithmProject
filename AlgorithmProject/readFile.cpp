@@ -74,6 +74,66 @@ ReadFile::ReadFile()
 }
 void ReadFile::alignment(int bumpNum)
 {
+    //find driver coordinate
+    int driverUpBound = -2147483647;
+    int driverLeftBound = 2147483647;
+    int driverRightBound = -2147483647;
+    int driverBottomBound = 2147483647;
+
+    for (int i = 0; i < driver.size(); ++i) {
+        if (driver[i].dtopY > driverUpBound) {
+            driverUpBound = driver[i].dtopY;
+        }
+        if (driver[i].dleftX < driverLeftBound) {
+            driverLeftBound = driver[i].dleftX;
+        }
+        if (driver[i].drightX > driverRightBound) {
+            driverRightBound = driver[i].drightX;
+        }
+        if (driver[i].dbottomY < driverBottomBound) {
+            driverBottomBound = driver[i].dbottomY;
+        }
+    }
+    //find driver location
+    vector<int>upSideDriver, rightSideDriver, bottomSideDriver, leftSideDriver;
+    for (int i = 0; i < driver.size(); ++i) {
+        if (driver[i].dtopY == driverUpBound) {
+            upSideDriver.push_back(driver[i].did);
+        }
+        if (driver[i].drightX == driverRightBound) {
+            rightSideDriver.push_back(driver[i].did);
+        }
+        if (driver[i].dbottomY == driverBottomBound) {
+            bottomSideDriver.push_back(driver[i].did);
+        }
+        if (driver[i].dleftX == driverLeftBound) {
+            leftSideDriver.push_back(driver[i].did);
+        }
+    }
+    //detect bump connect driver side
+    for (int i = 0; i < bump.size(); ++i) {
+        for (int j = 0; j < upSideDriver.size(); ++j) {
+            if (*bump[i].wireId == upSideDriver[j]) {
+                bump[i].outside_ring_direction = 1;
+            }
+        }
+        for (int j = 0; j < rightSideDriver.size(); ++j) {
+            if (*bump[i].wireId == rightSideDriver[j]) {
+                bump[i].outside_ring_direction = 2;
+            }
+        }
+        for (int j = 0; j < bottomSideDriver.size(); ++j) {
+            if (*bump[i].wireId == bottomSideDriver[j]) {
+                bump[i].outside_ring_direction = 3;
+            }
+        }
+        for (int j = 0; j < leftSideDriver.size(); ++j) {
+            if (*bump[i].wireId == leftSideDriver[j]) {
+                bump[i].outside_ring_direction = 4;
+            }
+        }
+    }
+    
     
     vector<BumpNode>bump_dup = bump;
     int x = MaxY2(&bump_dup);
@@ -102,7 +162,6 @@ void ReadFile::alignment(int bumpNum)
             }
             
         }
-        vector<BumpNode>*aaaa = &bvec[j];
         sort(bvec[j].begin(), bvec[j].end(), smaller_absolutedX1);
         int q = bvec[j].size();
         // end of reading the upper edge of bump square 
