@@ -156,7 +156,7 @@ int main(int argc, const char * argv[])
         printf("\n");
         
         routingMap->initMapinLayer(k , readFile->numBvec - k - 1, readFile->numBvec - k - 1, currentSeq);
-     //   printf("map initial\n");
+      //  printf("map initial\n");
        // routingMap->printBoxinLayer(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
         if (firstLayerReady == true) {
             routingMap->ringMaping(k, readFile->numBvec - k - 1, readFile->numBvec - k - 1);
@@ -168,6 +168,7 @@ int main(int argc, const char * argv[])
         previousSeq = currentSeq;
         k++;
     }
+    box asdv = routingMap->map[2 * routingMap->mapColNum + 2];
     mapping *maping = new mapping(routingMap->mapRowNum, routingMap->mapColNum, readFile->w, readFile->s,readFile->driver, readFile->bump);
     maping->mapping_incircle(routingMap->map);
    // maping->mapping_outcircle(routingMap->outCircleSequence);

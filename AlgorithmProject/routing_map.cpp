@@ -151,13 +151,16 @@ void RoutingMap::vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *
         }
     } else {
         if (side == topSide) {
+            box asd = map[(rowNum - 1) * mapColNum + colNum];
+            box xxx = map[(rowNum) * mapColNum + colNum];
+
             if (rowNum == 0) {
                 map[rowNum * mapColNum + colNum].top.push_back(node);
             } else {
                 map[rowNum * mapColNum + colNum].top.push_back(node);
                 if (map[(rowNum - 1) * mapColNum + colNum].buttom.size() > 1) {
                     map[(rowNum - 1) * mapColNum + colNum].buttom.insert(map[(rowNum - 1) * mapColNum + colNum].buttom.begin() + 1, node);
-                } else if (map[(rowNum - 1) * mapColNum + colNum].buttom.size()) {
+                } else if (map[(rowNum - 1) * mapColNum + colNum].buttom.size() == 1) {
                     map[(rowNum - 1) * mapColNum + colNum].buttom.push_back(node);
                 }
             }
@@ -168,7 +171,7 @@ void RoutingMap::vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *
                 map[rowNum * mapColNum + colNum].right.push_back(node);
                 if (map[rowNum * mapColNum + colNum + 1].left.size() > 1) {
                     map[rowNum * mapColNum + colNum + 1].left.insert(map[rowNum * mapColNum + colNum + 1].left.begin() + 1, node);
-                } else if (map[rowNum * mapColNum + colNum + 1].left.size()) {
+                } else if (map[rowNum * mapColNum + colNum + 1].left.size() == 1) {
                     map[rowNum * mapColNum + colNum + 1].left.push_back(node);
                 }
             }
@@ -177,9 +180,9 @@ void RoutingMap::vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *
                 map[rowNum * mapColNum + colNum].buttom.push_back(node);
             } else {
                 map[rowNum * mapColNum + colNum].buttom.push_back(node);
-                if (map[rowNum * mapColNum + colNum + 1].top.size() > 1) {
+                if (map[(rowNum + 1) * mapColNum + colNum].top.size() > 1) {
                     map[(rowNum + 1) * mapColNum + colNum].top.insert(map[(rowNum + 1) * mapColNum + colNum].top.begin() + 1, node);
-                } else if (map[(rowNum + 1) * mapColNum + colNum].top.size()) {
+                } else if (map[(rowNum + 1) * mapColNum + colNum].top.size() == 1) {
                     map[(rowNum + 1) * mapColNum + colNum].top.push_back(node);
                 }
             }
@@ -190,7 +193,7 @@ void RoutingMap::vnodeInserttoBox(int rowNum, int colNum, edges side, BumpNode *
                 map[rowNum * mapColNum + colNum].left.push_back(node);
                 if (map[rowNum * mapColNum + colNum - 1].right.size() > 1) {
                     map[rowNum * mapColNum + colNum - 1].right.insert(map[rowNum * mapColNum + colNum - 1].right.begin() + 1, node);
-                } else if (map[rowNum * mapColNum + colNum - 1].right.size()) {
+                } else if (map[rowNum * mapColNum + colNum - 1].right.size() == 1) {
                     map[rowNum * mapColNum + colNum - 1].right.push_back(node);
                 }
             }
@@ -293,7 +296,14 @@ void RoutingMap::initMapinLayer(int layer, int layerRowNum, int layerColNum, vec
                 default:
                     break;
             }
-        } else {
+        }
+    }
+    mapPointer = -1;
+    for (int i = 0; i < currentSeq.size(); ++i) {
+        if (!currentSeq[i]->isVirtual) {
+            mapPointer ++;
+            seqtoMap(layer, layerRowNum, layerColNum, mapPointer, &row, &col, &side);
+        } else if (mapPointer >= 0){
             vnodeInserttoBox(row, col, side, currentSeq[i], false);
         }
     }
@@ -530,6 +540,8 @@ void RoutingMap::printBoxinLayer(int layer, int startRowNum, int startColNum)
 }
 void RoutingMap::ringMaping(int layer, int startRowNum, int startColNum)
 {
+    box xx =map[0 * mapColNum + 1];
+
     int currentSequenceNum = 8 * layer + 4;
     int preSequenceNum = (layer > 0)? 8 * (layer - 1) + 4: 0;
     if (mapType == 1) {
@@ -1570,7 +1582,7 @@ int RoutingMap::layerPathMaping(int layer, int startRow, int startCol)
             }
         } else {
             if (mapingBox->top_lock == false) {
-                for (int i = map[mapingBoxRow * mapColNum + mapingBoxCol].top.size() - 1; i > 0; --i) {
+                for (int i = map[(mapingBoxRow - 1) * mapColNum + mapingBoxCol].buttom.size() - 1; i > 0; --i) {
                     map[(mapingBoxRow - 1) * mapColNum + mapingBoxCol].buttom.erase(map[(mapingBoxRow - 1) * mapColNum + mapingBoxCol].buttom.begin() + i);
                 }
                 for (int i = 1; i < mapingBox->top.size(); ++i) {
